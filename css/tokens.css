@@ -1,0 +1,154 @@
+/* ═══════════════════════════════════════════════════════════
+   TOKENS.CSS — Sistema de diseño ETEXCA — v2 "Viewport"
+   ───────────────────────────────────────────────────────────
+   Dirección: glassmorphism técnico inspirado en software BIM/CAD
+   — visores de proyecto, reticulas de viewport, superficies de
+   cristal sobre un fondo casi negro. El acento cian referencia
+   los renders wireframe de construcción; el ámbar referencia el
+   mapa de Canadá iluminado en la imagen de portada. Única
+   responsabilidad de este archivo: variables. Sin selectores de
+   layout ni de componentes aquí.
+═══════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ─── Superficie base ─── */
+  --void:            #05070D;   /* fondo casi negro */
+  --void-soft:        #0A0F1C;  /* elevación 1 sobre void */
+  --void-elevated:    #101830;  /* elevación 2 (paneles) */
+
+  /* ─── Cristal ─── */
+  --glass-fill:       rgba(154, 184, 255, 0.06);
+  --glass-fill-hover: rgba(154, 184, 255, 0.11);
+  --glass-border:     rgba(154, 184, 255, 0.16);
+  --glass-border-strong: rgba(154, 184, 255, 0.30);
+  --glass-blur:       18px;
+  --glass-blur-sm:    10px;
+
+  /* ─── Acentos ─── */
+  --cyan:             #4FD8FF;  /* acento tecnológico primario */
+  --cyan-dim:         rgba(79, 216, 255, 0.5);
+  --cyan-glow:        rgba(79, 216, 255, 0.22);
+  --amber:            #F2A93C;  /* acento cálido secundario */
+  --amber-dim:        rgba(242, 169, 60, 0.55);
+
+  /* ─── Texto ─── */
+  --text-primary:     #EAF1FF;
+  --text-dim:         rgba(234, 241, 255, 0.64);
+  --text-faint:       rgba(234, 241, 255, 0.38);
+  --text-on-cyan:     #04121A;
+
+  /* ─── Líneas ─── */
+  --rule:             rgba(154, 184, 255, 0.14);
+  --rule-strong:      rgba(154, 184, 255, 0.26);
+
+  /* ─── Tipografía ───
+     Space Grotesk  → display, geométrica/técnica (títulos)
+     Inter          → cuerpo de texto
+     IBM Plex Mono  → "readouts" de coordenadas, etiquetas técnicas */
+  --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* fs-h1 bajado de un tope de 5rem (80px) a 3.75rem (60px):
+     con el texto real del hero (4 líneas), el tope anterior
+     hacía que el panel creciera más alto que el propio hero
+     (100svh), rompiendo el encuadre de la imagen de fondo. */
+  --fs-h1:    clamp(2.1rem, 3.2vw + 1rem, 3.75rem);
+  --fs-h2:    clamp(1.7rem, 2vw + 1rem, 2.5rem);
+  --fs-h3:    clamp(1.1rem, 0.9vw + 1rem, 1.35rem);
+  --fs-lede:  clamp(1rem, 0.4vw + 1rem, 1.15rem);
+  --fs-body:  1rem;
+  --fs-label: 0.72rem;
+
+  --lh-tight:   1.12;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.7;
+
+  --ls-label: 0.14em; /* tracking para readouts mono en mayúsculas */
+
+  /* ─── Espaciado / grid ─── */
+  --gutter:        clamp(1.25rem, 4vw, 3rem);
+  --container-max: 1280px;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  /* ─── Bordes / radios ───
+     Cristal = esquinas suaves, no radicalmente redondas */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* ─── Movimiento ─── */
+  --ease:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  180ms;
+  --dur-base:  320ms;
+  --dur-slow:  600ms;
+
+  /* ─── Superficies traslúcidas (para rgba(var(--x-rgb), alpha)) ───
+     Mismos valores que --void / --void-soft en formato "r,g,b" sin
+     paréntesis, para poder variar la opacidad en header.css/layout.css
+     sin repetir un color fijo que no cambiaría con el tema. */
+  --surface-rgb:   10, 15, 28;   /* header, nav móvil, CTA flotante */
+  --overlay-rgb:    5,  7, 13;   /* difusores de imagen (hero/banner) */
+  --radial-accent: rgba(79, 216, 255, 0.10); /* resplandor del menú móvil */
+  /* Retícula de "plano técnico" (Servicios, Firma, Contacto, footer). */
+  --grid-line: rgba(154, 184, 255, 0.07);
+
+  /* ─── Capas ─── */
+  --z-header:      100;
+  --z-cta:         90;
+  --z-hero-content: 5;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MODO CLARO — activado con [data-theme="light"] en <html>,
+   controlado por el interruptor del header (ver header.css /
+   main.js). Redefine las mismas variables; el resto del CSS no
+   necesita tocarse porque todo el sistema ya está construido
+   sobre custom properties.
+═══════════════════════════════════════════════════════════ */
+html[data-theme="light"] {
+  --void:            #F3F6FB;
+  --void-soft:       #FFFFFF;
+  --void-elevated:   #E7ECF6;
+
+  --glass-fill:       rgba(16, 32, 64, 0.045);
+  --glass-fill-hover: rgba(16, 32, 64, 0.09);
+  --glass-border:     rgba(16, 32, 64, 0.12);
+  --glass-border-strong: rgba(16, 32, 64, 0.24);
+
+  /* Cian oscurecido a propósito: el original (#4FD8FF) es demasiado
+     claro para usarse como texto/acento sobre fondo blanco — aquí
+     se mantiene el mismo matiz pero bajando luminosidad para
+     conservar contraste AA. */
+  --cyan:             #0C86AA;
+  --cyan-dim:         rgba(12, 134, 170, 0.55);
+  --cyan-glow:        rgba(12, 134, 170, 0.16);
+  --amber:            #B8791F;
+  --amber-dim:        rgba(184, 121, 31, 0.5);
+
+  --text-primary:     #0F1A2E;
+  --text-dim:         rgba(15, 26, 46, 0.64);
+  --text-faint:       rgba(15, 26, 46, 0.4);
+  --text-on-cyan:     #FFFFFF;
+
+  --rule:             rgba(16, 32, 64, 0.13);
+  --rule-strong:      rgba(16, 32, 64, 0.24);
+
+  --surface-rgb:      255, 255, 255;
+  --overlay-rgb:      243, 246, 251;
+  --radial-accent:    rgba(12, 134, 170, 0.08);
+  /* Mismo matiz conceptual, pero oscuro y bastante más opaco: un
+     azul pálido casi no se distingue sobre un fondo casi blanco —
+     esto reproduce el look "papel de plano" (blueprint) que se ve
+     en modo oscuro. */
+  --grid-line: rgba(15, 30, 60, 0.13);
+}

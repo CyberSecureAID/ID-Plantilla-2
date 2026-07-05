@@ -1,0 +1,390 @@
+/* ═══════════════════════════════════════════════
+   ETEXCA — components.css
+   ───────────────────────────────────────────────
+   Botones de cristal, tarjetas de servicio/diferenciador,
+   formulario, y el CTA flotante que reemplaza a la antigua
+   barra inferior de ancho completo (tipo aviso de cookies).
+═══════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════
+   BOTONES
+═══════════════════════════════════════════════ */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.95rem 1.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  transition: transform var(--dur-fast) var(--ease-soft), box-shadow var(--dur-base) var(--ease-soft), background var(--dur-fast) ease, border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+.btn--primary {
+  background: var(--cyan);
+  color: var(--text-on-cyan);
+  box-shadow: 0 0 0 0 var(--cyan-glow);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 0 28px 2px var(--cyan-glow);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  background: var(--glass-fill);
+  color: var(--text-primary);
+  border-color: var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur-sm));
+  -webkit-backdrop-filter: blur(var(--glass-blur-sm));
+}
+
+.btn--ghost:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-strong);
+  transform: translateY(-1px);
+}
+
+.btn--sm { padding: 0.7rem 1.25rem; font-size: 0.72rem; }
+
+/* ═══════════════════════════════════════════════
+   PANEL / TARJETA DE CRISTAL — base compartida
+═══════════════════════════════════════════════ */
+.glass-panel {
+  background: linear-gradient(160deg, var(--glass-fill), rgba(154,184,255,0.02));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  padding: var(--space-4);
+  transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* ═══════════════════════════════════════════════
+   GRID DE SERVICIOS
+═══════════════════════════════════════════════ */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 700px) {
+  .service-grid { grid-template-columns: 1fr; }
+}
+
+.service-card {
+  background: var(--void-soft);
+  background-image: linear-gradient(160deg, var(--glass-fill), transparent 60%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: border-color var(--dur-base) var(--ease-soft), transform var(--dur-base) var(--ease-soft), background var(--dur-base) ease;
+}
+
+.service-card:hover {
+  border-color: var(--glass-border-strong);
+  transform: translateY(-4px);
+  background-image: linear-gradient(160deg, var(--glass-fill-hover), transparent 65%);
+}
+
+.service-card h3 { font-size: 1.15rem; }
+
+.service-card p {
+  color: var(--text-dim);
+  font-size: 0.94rem;
+  line-height: var(--lh-normal);
+}
+
+/* ═══════════════════════════════════════════════
+   TARJETAS DE DIFERENCIADOR
+═══════════════════════════════════════════════ */
+.trait-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: var(--space-4);
+}
+
+.trait-card {
+  border-radius: var(--radius-md);
+  perspective: 1400px;
+}
+
+.trait-card__flip {
+  display: grid;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform var(--dur-slow) var(--ease-soft);
+  outline: none;
+}
+
+.trait-card__flip:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: var(--radius-md);
+}
+
+.trait-card.is-flipped .trait-card__flip { transform: rotateY(180deg); }
+
+/* Truco de grid: ambas caras ocupan la MISMA celda (grid-area:1/1),
+   así que el alto de la tarjeta lo define automáticamente la cara
+   más alta en cada ancho de pantalla — nunca hay overflow en móvil,
+   sin necesidad de una altura fija adivinada. */
+.trait-card__face {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 100%;
+}
+
+.trait-card__face--back {
+  transform: rotateY(180deg);
+}
+
+.trait-card__face .readout { margin-bottom: 0.15rem; }
+
+.trait-card__face p { color: var(--text-dim); font-size: 0.92rem; }
+
+
+/* ═══════════════════════════════════════════════
+   FORMULARIO
+═══════════════════════════════════════════════ */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.4rem;
+}
+
+.field label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.field input,
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 0.9rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--dur-fast) ease, background var(--dur-fast) ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-faint); }
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--cyan-dim);
+  background: rgba(79, 216, 255, 0.04);
+}
+
+/* ═══════════════════════════════════════════════
+   CTA FLOTANTE — reemplaza la barra inferior de ancho
+   completo. Píldora de cristal discreta, no intrusiva,
+   nunca tapa contenido ni imita un aviso de cookies.
+═══════════════════════════════════════════════ */
+.float-cta {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: var(--z-cta);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.65rem 0.65rem 0.65rem 1.1rem;
+  background: rgba(var(--surface-rgb), 0.7);
+  border: 1px solid var(--glass-border-strong);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  transform: translateY(0);
+  transition: transform var(--dur-base) var(--ease-soft), opacity var(--dur-base) ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.float-cta__text {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.float-cta.is-hidden {
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .float-cta { left: var(--gutter); right: var(--gutter); justify-content: space-between; }
+  .float-cta__text { display: none; }
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER — marca, navegación, áreas de práctica,
+   contacto y franja inferior con volver-arriba.
+   Sin redes sociales (pedido explícito del cliente).
+═══════════════════════════════════════════════ */
+.site-footer {
+  position: relative;
+  background: var(--void);
+  border-top: 1px solid var(--rule);
+  padding: var(--space-6) 0 var(--space-3);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.site-footer__top {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.15fr;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.site-footer__mark {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  width: fit-content;
+}
+
+.site-footer__mark-glyph {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border-strong);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--cyan);
+}
+
+.site-footer__mark-word {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.site-footer__tagline {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: var(--lh-normal);
+  max-width: 34ch;
+}
+
+.site-footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.site-footer__links a {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color var(--dur-fast) ease;
+  width: fit-content;
+}
+
+.site-footer__links a:hover { color: var(--cyan); }
+
+.site-footer__contact {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--text-dim);
+}
+
+.site-footer__contact li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.site-footer__contact .meta-label { font-size: 0.68rem; }
+
+.site-footer__col .btn { margin-top: 0.25rem; width: fit-content; }
+
+.site-footer__bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+}
+
+.site-footer__top-link {
+  color: var(--text-faint);
+  text-decoration: none;
+  transition: color var(--dur-fast) ease;
+}
+
+.site-footer__top-link:hover { color: var(--cyan); }
+
+@media (max-width: 860px) {
+  .site-footer__top { grid-template-columns: 1fr 1fr; }
+  .site-footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .site-footer__top { grid-template-columns: 1fr; }
+}
