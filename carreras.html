@@ -8,7 +8,7 @@
 (function () {
   try {
     var saved = localStorage.getItem('etexca-theme');
-    document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : saved === 'dim' ? 'dim' : 'light');
+    document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
   } catch (e) {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
@@ -42,11 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css?v=22">
-<link rel="stylesheet" href="css/style.css?v=22">
-<link rel="stylesheet" href="css/layout.css?v=22">
-<link rel="stylesheet" href="css/header.css?v=22">
-<link rel="stylesheet" href="css/components.css?v=22">
+<link rel="stylesheet" href="css/tokens.css?v=23">
+<link rel="stylesheet" href="css/style.css?v=23">
+<link rel="stylesheet" href="css/layout.css?v=23">
+<link rel="stylesheet" href="css/header.css?v=23">
+<link rel="stylesheet" href="css/components.css?v=23">
 
 <!-- ═══ Google Search Console: pega tu código de verificación (método "etiqueta HTML") ═══ -->
 <meta name="google-site-verification" content="PEGAR_CODIGO_DE_VERIFICACION">
@@ -107,9 +107,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path>
           </svg>
-        </span>
-        <span class="theme-toggle__icon theme-toggle__icon--dim" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.4"></circle><path d="M12 3.6a8.4 8.4 0 0 0 0 16.8z" fill="currentColor" stroke="none"></path></svg>
         </span>
       </button>
     </div>
@@ -239,7 +236,7 @@
   <a href="contacto.html" class="btn btn--primary btn--sm">Agendar consulta</a>
 </div>
 
-<script src="js/main.js?v=14"></script>
+<script src="js/main.js?v=15"></script>
 
 </body>
 </html>
