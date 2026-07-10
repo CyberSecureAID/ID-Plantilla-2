@@ -77,13 +77,28 @@ function initScrollReveal() {
   });
 }
 
-/* CTA flotante: aparece después del hero, se oculta al acercarse
-   al footer/formulario de contacto para no tapar el envío. */
+/* CTA flotante: en páginas con hero, aparece al salir del hero.
+   En páginas sin hero (nosotros, servicios, etc.) se muestra
+   directamente. Siempre se oculta en la propia página de contacto,
+   donde sería redundante. */
 function initFloatCta() {
   const cta = document.querySelector('.float-cta');
+  if (!cta) return;
+
+  // En la página de contacto el CTA sobra: se oculta y no se hace nada más.
+  const isContactPage = /(^|\/)contacto\.html$/.test(window.location.pathname);
+  if (isContactPage) {
+    cta.classList.add('is-hidden');
+    return;
+  }
+
   const hero = document.querySelector('.hero');
-  const contact = document.getElementById('contacto');
-  if (!cta || !hero) return;
+
+  // Sin hero: mostrar el CTA de entrada (no hay sección que lo dispare).
+  if (!hero) {
+    cta.classList.remove('is-hidden');
+    return;
+  }
 
   cta.classList.add('is-hidden');
 
@@ -93,15 +108,6 @@ function initFloatCta() {
     });
   }, { threshold: 0.05 });
   heroObserver.observe(hero);
-
-  if (contact) {
-    const contactObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) cta.classList.add('is-hidden');
-      });
-    }, { threshold: 0.2 });
-    contactObserver.observe(contact);
-  }
 }
 
 /* Tarjetas de eje: toque/clic para voltear y mostrar el reverso.
