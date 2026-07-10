@@ -188,7 +188,7 @@
 .field textarea {
   font-family: var(--font-body);
   font-size: 1rem;
-  background: rgba(255,255,255,0.03);
+  background: var(--glass-fill);
   border: 1px solid var(--rule);
   border-radius: var(--radius-sm);
   padding: 0.8rem 0.9rem;
@@ -203,7 +203,7 @@
 .field input:focus,
 .field textarea:focus {
   border-color: var(--cyan-dim);
-  background: rgba(79, 216, 255, 0.04);
+  background: var(--glass-fill-hover);
 }
 
 /* ═══════════════════════════════════════════════
