@@ -1,59 +1,52 @@
 /* ═══════════════════════════════════════════════════════════
-   TOKENS.CSS — Sistema de diseño ETEXCA — v2 "Viewport"
+   TOKENS.CSS — Sistema de diseño — paleta "Opción C": Negro / Dorado / Blanco
    ───────────────────────────────────────────────────────────
-   Dirección: glassmorphism técnico inspirado en software BIM/CAD
-   — visores de proyecto, reticulas de viewport, superficies de
-   cristal sobre un fondo casi negro. El acento cian referencia
-   los renders wireframe de construcción; el ámbar referencia el
-   mapa de Canadá iluminado en la imagen de portada. Única
-   responsabilidad de este archivo: variables. Sin selectores de
-   layout ni de componentes aquí.
+   Glassmorphism técnico. El acento primario es dorado; el
+   secundario, un dorado más profundo (bronce) que acompaña sin
+   competir. Se conservan los NOMBRES de variables del sistema
+   anterior (incluido --cyan) para no tocar el resto del CSS: solo
+   cambian los valores de color.
 ═══════════════════════════════════════════════════════════ */
 
 :root {
 
-  /* ─── Superficie base ─── */
-  --void:            #05070D;   /* fondo casi negro */
-  --void-soft:        #0A0F1C;  /* elevación 1 sobre void */
-  --void-elevated:    #101830;  /* elevación 2 (paneles) */
+  /* ─── Superficie base (negro neutro) ─── */
+  --void:            #0B0B0C;
+  --void-soft:       #141416;
+  --void-elevated:   #1C1C1F;
 
-  /* ─── Cristal ─── */
-  --glass-fill:       rgba(154, 184, 255, 0.06);
-  --glass-fill-hover: rgba(154, 184, 255, 0.11);
-  --glass-border:     rgba(154, 184, 255, 0.16);
-  --glass-border-strong: rgba(154, 184, 255, 0.30);
+  /* ─── Cristal (tinte blanco cálido neutro) ─── */
+  --glass-fill:       rgba(240, 228, 190, 0.055);
+  --glass-fill-hover: rgba(240, 228, 190, 0.10);
+  --glass-border:     rgba(240, 228, 190, 0.16);
+  --glass-border-strong: rgba(240, 228, 190, 0.30);
   --glass-blur:       18px;
   --glass-blur-sm:    10px;
 
-  /* ─── Acentos ─── */
-  --cyan:             #4FD8FF;  /* acento tecnológico primario */
-  --cyan-dim:         rgba(79, 216, 255, 0.5);
-  --cyan-glow:        rgba(79, 216, 255, 0.22);
-  --amber:            #F2A93C;  /* acento cálido secundario */
-  --amber-dim:        rgba(242, 169, 60, 0.55);
+  /* ─── Acentos ───
+     --cyan conserva el nombre por compatibilidad, pero ahora es
+     DORADO (acento primario). --amber es un dorado más profundo. */
+  --cyan:             #E4C567;
+  --cyan-dim:         rgba(228, 197, 103, 0.5);
+  --cyan-glow:        rgba(228, 197, 103, 0.22);
+  --amber:            #C9A227;
+  --amber-dim:        rgba(201, 162, 39, 0.55);
 
-  /* ─── Texto ─── */
-  --text-primary:     #EAF1FF;
-  --text-dim:         rgba(234, 241, 255, 0.64);
-  --text-faint:       rgba(234, 241, 255, 0.38);
-  --text-on-cyan:     #04121A;
+  /* ─── Texto (blanco cálido) ─── */
+  --text-primary:     #F7F5EF;
+  --text-dim:         rgba(247, 245, 239, 0.64);
+  --text-faint:       rgba(247, 245, 239, 0.38);
+  --text-on-cyan:     #0B0B0C;   /* texto oscuro sobre botón dorado */
 
   /* ─── Líneas ─── */
-  --rule:             rgba(154, 184, 255, 0.14);
-  --rule-strong:      rgba(154, 184, 255, 0.26);
+  --rule:             rgba(240, 228, 190, 0.14);
+  --rule-strong:      rgba(240, 228, 190, 0.26);
 
-  /* ─── Tipografía ───
-     Space Grotesk  → display, geométrica/técnica (títulos)
-     Inter          → cuerpo de texto
-     IBM Plex Mono  → "readouts" de coordenadas, etiquetas técnicas */
+  /* ─── Tipografía ─── */
   --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono:    'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
 
-  /* fs-h1 bajado de un tope de 5rem (80px) a 3.75rem (60px):
-     con el texto real del hero (4 líneas), el tope anterior
-     hacía que el panel creciera más alto que el propio hero
-     (100svh), rompiendo el encuadre de la imagen de fondo. */
   --fs-h1:    clamp(2.1rem, 3.2vw + 1rem, 3.75rem);
   --fs-h2:    clamp(1.7rem, 2vw + 1rem, 2.5rem);
   --fs-h3:    clamp(1.1rem, 0.9vw + 1rem, 1.35rem);
@@ -65,7 +58,7 @@
   --lh-normal:  1.5;
   --lh-relaxed: 1.7;
 
-  --ls-label: 0.14em; /* tracking para readouts mono en mayúsculas */
+  --ls-label: 0.14em;
 
   /* ─── Espaciado / grid ─── */
   --gutter:        clamp(1.25rem, 4vw, 3rem);
@@ -78,8 +71,7 @@
   --space-5: 4rem;
   --space-6: 6rem;
 
-  /* ─── Bordes / radios ───
-     Cristal = esquinas suaves, no radicalmente redondas */
+  /* ─── Bordes / radios ─── */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -92,15 +84,11 @@
   --dur-base:  320ms;
   --dur-slow:  600ms;
 
-  /* ─── Superficies traslúcidas (para rgba(var(--x-rgb), alpha)) ───
-     Mismos valores que --void / --void-soft en formato "r,g,b" sin
-     paréntesis, para poder variar la opacidad en header.css/layout.css
-     sin repetir un color fijo que no cambiaría con el tema. */
-  --surface-rgb:   10, 15, 28;   /* header, nav móvil, CTA flotante */
-  --overlay-rgb:    5,  7, 13;   /* difusores de imagen (hero/banner) */
-  --radial-accent: rgba(79, 216, 255, 0.10); /* resplandor del menú móvil */
-  /* Retícula de "plano técnico" (Servicios, Firma, Contacto, footer). */
-  --grid-line: rgba(154, 184, 255, 0.07);
+  /* ─── Superficies traslúcidas (rgba(var(--x-rgb), alpha)) ─── */
+  --surface-rgb:   20, 20, 22;   /* header, nav móvil, CTA flotante */
+  --overlay-rgb:   11, 11, 12;   /* difusores de imagen (hero/banner) */
+  --radial-accent: rgba(228, 197, 103, 0.10); /* resplandor menú móvil */
+  --grid-line:     rgba(240, 228, 190, 0.07);  /* retícula plano técnico */
 
   /* ─── Capas ─── */
   --z-header:      100;
@@ -109,46 +97,36 @@
 }
 
 /* ═══════════════════════════════════════════════════════════
-   MODO CLARO — activado con [data-theme="light"] en <html>,
-   controlado por el interruptor del header (ver header.css /
-   main.js). Redefine las mismas variables; el resto del CSS no
-   necesita tocarse porque todo el sistema ya está construido
-   sobre custom properties.
+   MODO CLARO — [data-theme="light"] en <html>.
+   Dorado oscurecido (bronce) para conservar contraste AA como
+   texto/acento sobre fondo claro.
 ═══════════════════════════════════════════════════════════ */
 html[data-theme="light"] {
-  --void:            #F3F6FB;
+  --void:            #F7F5EF;
   --void-soft:       #FFFFFF;
-  --void-elevated:   #E7ECF6;
+  --void-elevated:   #ECE7DA;
 
-  --glass-fill:       rgba(16, 32, 64, 0.045);
-  --glass-fill-hover: rgba(16, 32, 64, 0.09);
-  --glass-border:     rgba(16, 32, 64, 0.12);
-  --glass-border-strong: rgba(16, 32, 64, 0.24);
+  --glass-fill:       rgba(30, 24, 10, 0.045);
+  --glass-fill-hover: rgba(30, 24, 10, 0.09);
+  --glass-border:     rgba(30, 24, 10, 0.12);
+  --glass-border-strong: rgba(30, 24, 10, 0.24);
 
-  /* Cian oscurecido a propósito: el original (#4FD8FF) es demasiado
-     claro para usarse como texto/acento sobre fondo blanco — aquí
-     se mantiene el mismo matiz pero bajando luminosidad para
-     conservar contraste AA. */
-  --cyan:             #0C86AA;
-  --cyan-dim:         rgba(12, 134, 170, 0.55);
-  --cyan-glow:        rgba(12, 134, 170, 0.16);
-  --amber:            #B8791F;
-  --amber-dim:        rgba(184, 121, 31, 0.5);
+  --cyan:             #9A7817;
+  --cyan-dim:         rgba(154, 120, 23, 0.55);
+  --cyan-glow:        rgba(154, 120, 23, 0.16);
+  --amber:            #7E5E12;
+  --amber-dim:        rgba(126, 94, 18, 0.5);
 
-  --text-primary:     #0F1A2E;
-  --text-dim:         rgba(15, 26, 46, 0.64);
-  --text-faint:       rgba(15, 26, 46, 0.4);
+  --text-primary:     #1A1712;
+  --text-dim:         rgba(26, 23, 18, 0.64);
+  --text-faint:       rgba(26, 23, 18, 0.40);
   --text-on-cyan:     #FFFFFF;
 
-  --rule:             rgba(16, 32, 64, 0.13);
-  --rule-strong:      rgba(16, 32, 64, 0.24);
+  --rule:             rgba(30, 24, 10, 0.13);
+  --rule-strong:      rgba(30, 24, 10, 0.24);
 
   --surface-rgb:      255, 255, 255;
-  --overlay-rgb:      243, 246, 251;
-  --radial-accent:    rgba(12, 134, 170, 0.08);
-  /* Mismo matiz conceptual, pero oscuro y bastante más opaco: un
-     azul pálido casi no se distingue sobre un fondo casi blanco —
-     esto reproduce el look "papel de plano" (blueprint) que se ve
-     en modo oscuro. */
-  --grid-line: rgba(15, 30, 60, 0.13);
+  --overlay-rgb:      247, 245, 239;
+  --radial-accent:    rgba(154, 120, 23, 0.08);
+  --grid-line:        rgba(30, 24, 10, 0.13);
 }
