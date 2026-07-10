@@ -132,19 +132,20 @@ html[data-theme="light"] {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   TERCER TEMA — "Penumbra" [data-theme="dim"]: intermedio entre
-   oscuro y claro. Graphito cálido con dorado; usa el juego de
-   imágenes oscuras del hero/banner.
+   TERCER TEMA — "Azul" [data-theme="dim"]: intermedio entre oscuro
+   y claro, azul marino (#0F2742) con acento dorado. Usa el juego de
+   imágenes oscuras del hero/banner. (Se conserva el valor "dim" del
+   atributo por compatibilidad con header.css / main.js.)
 ═══════════════════════════════════════════════════════════ */
 html[data-theme="dim"] {
-  --void:            #2A2620;
-  --void-soft:       #332E26;
-  --void-elevated:   #3E382D;
+  --void:            #0F2742;
+  --void-soft:       #163454;
+  --void-elevated:   #1E4066;
 
-  --glass-fill:       rgba(240, 228, 190, 0.06);
-  --glass-fill-hover: rgba(240, 228, 190, 0.11);
-  --glass-border:     rgba(240, 228, 190, 0.17);
-  --glass-border-strong: rgba(240, 228, 190, 0.32);
+  --glass-fill:       rgba(180, 205, 255, 0.06);
+  --glass-fill-hover: rgba(180, 205, 255, 0.11);
+  --glass-border:     rgba(180, 205, 255, 0.16);
+  --glass-border-strong: rgba(180, 205, 255, 0.30);
 
   --cyan:             #E4C567;
   --cyan-dim:         rgba(228, 197, 103, 0.5);
@@ -152,16 +153,16 @@ html[data-theme="dim"] {
   --amber:            #C9A227;
   --amber-dim:        rgba(201, 162, 39, 0.55);
 
-  --text-primary:     #F4EFE2;
-  --text-dim:         rgba(244, 239, 226, 0.66);
-  --text-faint:       rgba(244, 239, 226, 0.40);
-  --text-on-cyan:     #2A2620;
+  --text-primary:     #EAF1FB;
+  --text-dim:         rgba(234, 241, 251, 0.66);
+  --text-faint:       rgba(234, 241, 251, 0.40);
+  --text-on-cyan:     #0F2742;
 
-  --rule:             rgba(240, 228, 190, 0.15);
-  --rule-strong:      rgba(240, 228, 190, 0.28);
+  --rule:             rgba(180, 205, 255, 0.14);
+  --rule-strong:      rgba(180, 205, 255, 0.26);
 
-  --surface-rgb:      51, 46, 38;
-  --overlay-rgb:      42, 38, 32;
+  --surface-rgb:      22, 52, 84;
+  --overlay-rgb:      15, 39, 66;
   --radial-accent:    rgba(228, 197, 103, 0.10);
-  --grid-line:        rgba(240, 228, 190, 0.08);
+  --grid-line:        rgba(180, 205, 255, 0.07);
 }
