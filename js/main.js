@@ -137,10 +137,9 @@ function initThemeToggle() {
   if (!toggle) return;
 
   const root = document.documentElement;
-  const order = ['light', 'dim', 'dark'];
+  const order = ['light', 'dark'];
   const labels = {
-    light: 'Cambiar a modo azul',
-    dim:   'Cambiar a modo oscuro',
+    light: 'Cambiar a modo oscuro',
     dark:  'Cambiar a modo claro'
   };
 
