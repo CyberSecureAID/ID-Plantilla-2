@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<!-- Aplica el tema guardado ANTES de que se pinte la página, para
+     evitar un parpadeo (flash) del tema por defecto al cargar. -->
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('etexca-theme');
+    document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros — ETEXCA</title>
+<meta name="description" content="ETEXCA: consultoría de tecnología e ingeniería aplicada a la construcción en Canadá.">
+
+<!-- ASUNCIÓN: dominio placeholder — reemplazar cuando exista el dominio real -->
+<link rel="canonical" href="https://www.etexca.com/nosotros.html">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ETEXCA">
+<meta property="og:title" content="Nosotros — ETEXCA">
+<meta property="og:description" content="Consultoría de tecnología e ingeniería aplicada a la construcción en Canadá.">
+<meta property="og:locale" content="es_CA">
+<!-- ASUNCIÓN: og:image pendiente — no hay logo/foto de portada todavía (README §3.2) -->
+<!-- <meta property="og:image" content="https://www.etexca.com/og-image.jpg"> -->
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nosotros — ETEXCA">
+<meta name="twitter:description" content="Consultoría de tecnología e ingeniería aplicada a la construcción en Canadá.">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<!-- Tipografías del sistema de diseño v2 (Space Grotesk / Inter / IBM Plex Mono) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css?v=20">
+<link rel="stylesheet" href="css/style.css?v=20">
+<link rel="stylesheet" href="css/layout.css?v=20">
+<link rel="stylesheet" href="css/header.css?v=20">
+<link rel="stylesheet" href="css/components.css?v=20">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER — BLOQUE COMPARTIDO (idéntico en las 7 páginas).
+     Lo único que cambia respecto a index.html: aria-current="page"
+     está en el enlace "Nosotros".
+═══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="container site-header__row">
+    <a href="index.html" class="site-header__mark">
+      <!-- ASUNCIÓN: monograma de cristal como placeholder de logo.
+           Sustituir <span class="site-header__mark-glyph"> por
+           <img src="images/logo.svg" ...> en cuanto exista el
+           logotipo real del cliente — el resto del header no cambia. -->
+      <span class="site-header__mark-glyph">E</span>
+      <span class="site-header__mark-word">ETEXCA</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html" aria-current="page">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contratacion-indigena.html">Contratación Indígena</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="carreras.html">Carreras</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="contacto.html" class="site-nav__cta btn btn--ghost btn--sm">Solicitar consulta</a>
+    </nav>
+    <div class="site-header__actions">
+      <a href="contacto.html" class="btn btn--ghost btn--sm site-header__cta">Solicitar consulta</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar a modo claro" aria-pressed="false" title="Cambiar tema">
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4.2"></circle>
+            <line x1="12" y1="2.5" x2="12" y2="5"></line>
+            <line x1="12" y1="19" x2="12" y2="21.5"></line>
+            <line x1="4.2" y1="4.2" x2="6" y2="6"></line>
+            <line x1="18" y1="18" x2="19.8" y2="19.8"></line>
+            <line x1="2.5" y1="12" x2="5" y2="12"></line>
+            <line x1="19" y1="12" x2="21.5" y2="12"></line>
+            <line x1="4.2" y1="19.8" x2="6" y2="18"></line>
+            <line x1="18" y1="6" x2="19.8" y2="4.2"></line>
+          </svg>
+        </span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path>
+          </svg>
+        </span>
+      </button>
+    </div>
+    <button class="site-header__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     § ENCABEZADO DE PÁGINA
+     ─────────────────────────────────────────────────────
+     Esta página NO tiene hero de imagen (a diferencia de Inicio).
+     El header es position:fixed, así que la primera sección lleva
+     padding-top extra (var(--space-6)) para no quedar tapada.
+     ESQUELETO (Fase 1). Título/copy reales entran en la FASE 4.
+═══════════════════════════════════════════════ -->
+<section class="section grid-texture" id="nosotros" style="background:var(--void); padding-top:var(--space-6);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="readout">Nosotros</span>
+      <!-- FASE 4 → título de la página -->
+      <p class="lede" style="color:var(--text-faint);">[ Encabezado de "Nosotros" — contenido en Fase 4 ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     § HISTORIA DE LA EMPRESA
+     ESQUELETO (Fase 1). Contenido → FASE 4:
+       · Historia breve (empresa en crecimiento; sin inventar datos).
+═══════════════════════════════════════════════ -->
+<section class="section grid-texture" id="historia" style="background:var(--void-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="readout">Historia</span>
+      <p class="lede" style="color:var(--text-faint);">[ Sección: historia de la empresa — contenido en Fase 4 ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     § EQUIPO DIRECTIVO
+     ESQUELETO (Fase 1). Contenido → FASE 4:
+       · Riley Birkett y Pavel Portelles Rivas por CARGO/ROL.
+       · PRIVACIDAD: nunca incluir domicilios ni datos privados.
+═══════════════════════════════════════════════ -->
+<section class="section grid-texture" id="equipo" style="background:var(--void);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="readout">Equipo directivo</span>
+      <p class="lede" style="color:var(--text-faint);">[ Sección: equipo directivo (solo cargo/rol) — contenido en Fase 4 ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     § MISIÓN · VISIÓN · VALORES
+     ESQUELETO (Fase 1). Contenido → FASE 4:
+       · Misión, visión y valores (profesionalismo, confianza,
+         solidez, inclusión, liderazgo, excelencia operacional,
+         asociación indígena auténtica).
+═══════════════════════════════════════════════ -->
+<section class="section grid-texture" id="mvv" style="background:var(--void-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="readout">Misión · Visión · Valores</span>
+      <p class="lede" style="color:var(--text-faint);">[ Sección: misión, visión y valores — contenido en Fase 4 ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     § COMPROMISO CON LAS COMUNIDADES INDÍGENAS
+     ESQUELETO (Fase 1). Contenido → FASE 4:
+       · Compromiso con las comunidades indígenas (tono corporativo
+         moderno, sin estereotipos visuales).
+═══════════════════════════════════════════════ -->
+<section class="section grid-texture" id="compromiso-indigena" style="background:var(--void);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="readout">Compromiso indígena</span>
+      <p class="lede" style="color:var(--text-faint);">[ Sección: compromiso con las comunidades indígenas — contenido en Fase 4 ]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER — BLOQUE COMPARTIDO (idéntico en las 7 páginas).
+═══════════════════════════════════════════════ -->
+<footer class="site-footer grid-texture">
+  <div class="container site-footer__top">
+    <div class="site-footer__brand">
+      <a href="index.html" class="site-footer__mark">
+        <span class="site-footer__mark-glyph">E</span>
+        <span class="site-footer__mark-word">ETEXCA</span>
+      </a>
+      <p class="site-footer__tagline">Tecnología e ingeniería aplicada a la construcción — decisiones técnicas respaldadas en datos, no en supuestos.</p>
+    </div>
+
+    <div class="site-footer__col">
+      <span class="readout">Navegación</span>
+      <nav class="site-footer__links">
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contratacion-indigena.html">Contratación Indígena</a>
+      </nav>
+    </div>
+
+    <div class="site-footer__col">
+      <span class="readout">Explorar</span>
+      <nav class="site-footer__links">
+        <a href="proyectos.html">Proyectos</a>
+        <a href="carreras.html">Carreras</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+
+    <div class="site-footer__col">
+      <span class="readout">Contacto</span>
+      <ul class="site-footer__contact">
+        <li><span class="meta-label">Teléfono</span>Pendiente</li>
+        <li><span class="meta-label">Correo</span>Pendiente</li>
+        <li><span class="meta-label">Ubicación</span>Canadá</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <span>© <span id="year"></span> ETEXCA — Tecnología e Ingeniería de la Construcción</span>
+    <a href="#top" class="site-footer__top-link">Volver arriba ↑</a>
+  </div>
+</footer>
+
+<!-- CTA flotante — píldora de cristal discreta. En páginas sin hero
+     (como esta) se muestra directamente (ver js/main.js). -->
+<div class="float-cta">
+  <span class="float-cta__text">¿Necesita asesoría?</span>
+  <a href="contacto.html" class="btn btn--primary btn--sm">Agendar consulta</a>
+</div>
+
+<script src="js/main.js?v=10"></script>
+
+</body>
+</html>
