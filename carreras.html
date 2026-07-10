@@ -177,7 +177,8 @@
 
     <!-- ASUNCIÓN: action="#" como placeholder — aún no hay correo corporativo
          ni backend (ver Fase 9). Conectar cuando exista el dominio/correo. -->
-    <form action="#" method="POST" enctype="multipart/form-data" class="glass-panel reveal" style="max-width:640px; margin:0 auto;">
+    <form action="#" method="POST" enctype="multipart/form-data" class="glass-panel reveal" style="max-width:680px; margin:0 auto;">
+      <div class="form-grid">
       <div class="field">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo">
@@ -194,13 +195,14 @@
         <label for="puesto">Puesto de interés</label>
         <input type="text" id="puesto" name="puesto" placeholder="Puesto o especialidad / subcontratista">
       </div>
-      <div class="field">
+      <div class="field field--full">
         <label for="cv">Adjuntar CV</label>
         <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
       </div>
-      <div class="field">
+      <div class="field field--full">
         <label for="mensaje">Mensaje</label>
         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntenos sobre su experiencia"></textarea>
+      </div>
       </div>
       <button type="submit" class="btn btn--primary">Enviar solicitud</button>
     </form>

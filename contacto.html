@@ -141,6 +141,7 @@
       <!-- ASUNCIÓN: action="#" como placeholder — aún no hay correo corporativo
            ni backend. Conectar cuando exista el dominio/correo. -->
       <form action="#" method="POST" class="glass-panel reveal">
+        <div class="form-grid">
         <div class="field">
           <label for="nombre">Nombre</label>
           <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo">
@@ -157,9 +158,10 @@
           <label for="empresa">Empresa</label>
           <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa (opcional)">
         </div>
-        <div class="field">
+        <div class="field field--full">
           <label for="mensaje">Mensaje</label>
           <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntenos sobre su proyecto"></textarea>
+        </div>
         </div>
         <button type="submit" class="btn btn--primary">Enviar</button>
       </form>
