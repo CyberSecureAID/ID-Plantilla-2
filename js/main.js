@@ -137,26 +137,31 @@ function initThemeToggle() {
   if (!toggle) return;
 
   const root = document.documentElement;
+  const order = ['dark', 'dim', 'light'];
+  const labels = {
+    dark:  'Cambiar a modo penumbra',
+    dim:   'Cambiar a modo claro',
+    light: 'Cambiar a modo oscuro'
+  };
 
-  const syncToggleLabel = (theme) => {
-    const isLight = theme === 'light';
-    toggle.setAttribute('aria-pressed', String(isLight));
-    toggle.setAttribute('aria-label', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
+  const current = () => {
+    const t = root.getAttribute('data-theme');
+    return order.includes(t) ? t : 'dark';
   };
 
   const applyTheme = (theme, persist) => {
     root.setAttribute('data-theme', theme);
-    syncToggleLabel(theme);
+    toggle.setAttribute('aria-label', labels[theme] || labels.dark);
     if (persist) {
       try { localStorage.setItem('etexca-theme', theme); } catch (e) { /* almacenamiento no disponible */ }
     }
   };
 
-  // Sincroniza el botón con el tema que ya aplicó el script del <head>.
-  syncToggleLabel(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+  // Sincroniza la etiqueta con el tema que ya aplicó el script del <head>.
+  applyTheme(current(), false);
 
   toggle.addEventListener('click', () => {
-    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-    applyTheme(next, true);
+    const i = order.indexOf(current());
+    applyTheme(order[(i + 1) % order.length], true);
   });
 }
