@@ -130,3 +130,38 @@ html[data-theme="light"] {
   --radial-accent:    rgba(154, 120, 23, 0.08);
   --grid-line:        rgba(30, 24, 10, 0.13);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   TERCER TEMA — "Penumbra" [data-theme="dim"]: intermedio entre
+   oscuro y claro. Graphito cálido con dorado; usa el juego de
+   imágenes oscuras del hero/banner.
+═══════════════════════════════════════════════════════════ */
+html[data-theme="dim"] {
+  --void:            #2A2620;
+  --void-soft:       #332E26;
+  --void-elevated:   #3E382D;
+
+  --glass-fill:       rgba(240, 228, 190, 0.06);
+  --glass-fill-hover: rgba(240, 228, 190, 0.11);
+  --glass-border:     rgba(240, 228, 190, 0.17);
+  --glass-border-strong: rgba(240, 228, 190, 0.32);
+
+  --cyan:             #E4C567;
+  --cyan-dim:         rgba(228, 197, 103, 0.5);
+  --cyan-glow:        rgba(228, 197, 103, 0.22);
+  --amber:            #C9A227;
+  --amber-dim:        rgba(201, 162, 39, 0.55);
+
+  --text-primary:     #F4EFE2;
+  --text-dim:         rgba(244, 239, 226, 0.66);
+  --text-faint:       rgba(244, 239, 226, 0.40);
+  --text-on-cyan:     #2A2620;
+
+  --rule:             rgba(240, 228, 190, 0.15);
+  --rule-strong:      rgba(240, 228, 190, 0.28);
+
+  --surface-rgb:      51, 46, 38;
+  --overlay-rgb:      42, 38, 32;
+  --radial-accent:    rgba(228, 197, 103, 0.10);
+  --grid-line:        rgba(240, 228, 190, 0.08);
+}

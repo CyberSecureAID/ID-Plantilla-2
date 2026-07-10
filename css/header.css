@@ -188,12 +188,18 @@ body.is-scrolled .site-header__row {
   display: block;
 }
 
-/* Modo oscuro (por defecto): la luna está activa, el sol oculto */
-.theme-toggle__icon--sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+/* Tres temas: oscuro (luna), penumbra (contraste) y claro (sol).
+   Los tres íconos ocupan la misma celda; solo uno es visible según
+   el atributo data-theme en <html>. */
+.theme-toggle__icon--sun,
+.theme-toggle__icon--dim { opacity: 0; transform: rotate(-90deg) scale(0.5); }
 .theme-toggle__icon--moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
-html[data-theme="light"] .theme-toggle__icon--sun { opacity: 1; transform: rotate(0deg) scale(1); }
+html[data-theme="dim"] .theme-toggle__icon--moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+html[data-theme="dim"] .theme-toggle__icon--dim { opacity: 1; transform: rotate(0deg) scale(1); }
+
 html[data-theme="light"] .theme-toggle__icon--moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+html[data-theme="light"] .theme-toggle__icon--sun { opacity: 1; transform: rotate(0deg) scale(1); }
 
 /* Selector compuesto (.site-nav .site-nav__cta) a propósito: sube la
    especificidad por encima de .btn { display: inline-flex } de
