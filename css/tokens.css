@@ -11,15 +11,15 @@
 :root {
 
   /* ─── Superficie base (negro neutro) ─── */
-  --void:            #0B0B0C;
-  --void-soft:       #141416;
-  --void-elevated:   #1C1C1F;
+  --void:            #05070D;
+  --void-soft:       #0A0F1C;
+  --void-elevated:   #101830;
 
-  /* ─── Cristal (tinte blanco cálido neutro) ─── */
-  --glass-fill:       rgba(240, 228, 190, 0.055);
-  --glass-fill-hover: rgba(240, 228, 190, 0.10);
-  --glass-border:     rgba(240, 228, 190, 0.16);
-  --glass-border-strong: rgba(240, 228, 190, 0.30);
+  /* ─── Cristal (tinte azul frío — tema nocturno original) ─── */
+  --glass-fill:       rgba(154, 184, 255, 0.06);
+  --glass-fill-hover: rgba(154, 184, 255, 0.11);
+  --glass-border:     rgba(154, 184, 255, 0.16);
+  --glass-border-strong: rgba(154, 184, 255, 0.30);
   --glass-blur:       18px;
   --glass-blur-sm:    10px;
 
@@ -32,15 +32,15 @@
   --amber:            #C9A227;
   --amber-dim:        rgba(201, 162, 39, 0.55);
 
-  /* ─── Texto (blanco cálido) ─── */
-  --text-primary:     #F7F5EF;
-  --text-dim:         rgba(247, 245, 239, 0.64);
-  --text-faint:       rgba(247, 245, 239, 0.38);
-  --text-on-cyan:     #0B0B0C;   /* texto oscuro sobre botón dorado */
+  /* ─── Texto (blanco frío — tema nocturno original) ─── */
+  --text-primary:     #EAF1FF;
+  --text-dim:         rgba(234, 241, 255, 0.64);
+  --text-faint:       rgba(234, 241, 255, 0.38);
+  --text-on-cyan:     #04121A;   /* texto oscuro sobre botón dorado */
 
   /* ─── Líneas ─── */
-  --rule:             rgba(240, 228, 190, 0.14);
-  --rule-strong:      rgba(240, 228, 190, 0.26);
+  --rule:             rgba(154, 184, 255, 0.14);
+  --rule-strong:      rgba(154, 184, 255, 0.26);
 
   /* ─── Tipografía ─── */
   --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
@@ -85,10 +85,10 @@
   --dur-slow:  600ms;
 
   /* ─── Superficies traslúcidas (rgba(var(--x-rgb), alpha)) ─── */
-  --surface-rgb:   20, 20, 22;   /* header, nav móvil, CTA flotante */
-  --overlay-rgb:   11, 11, 12;   /* difusores de imagen (hero/banner) */
+  --surface-rgb:   10, 15, 28;   /* header, nav móvil, CTA flotante */
+  --overlay-rgb:    5,  7, 13;   /* difusores de imagen (hero/banner) */
   --radial-accent: rgba(228, 197, 103, 0.10); /* resplandor menú móvil */
-  --grid-line:     rgba(240, 228, 190, 0.07);  /* retícula plano técnico */
+  --grid-line:     rgba(154, 184, 255, 0.07);  /* retícula plano técnico */
 
   /* ─── Capas ─── */
   --z-header:      100;
