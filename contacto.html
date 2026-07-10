@@ -111,8 +111,8 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Contacto</span>
-      <!-- FASE 9 → título + intro de la página -->
-      <p class="lede" style="color:var(--text-faint);">[ Encabezado de "Contacto" — contenido en Fase 9 ]</p>
+      <h1>Hablemos de su proyecto</h1>
+      <p class="lede">Cuéntenos sobre su proyecto, licitación o requerimiento de participación indígena y le responderemos con los siguientes pasos.</p>
     </div>
   </div>
 </section>
@@ -133,11 +133,64 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Escríbanos</span>
-      <p class="lede" style="color:var(--text-faint);">[ Formulario (.field, action="#") + datos de contacto + espacio para redes — contenido en Fase 9 ]</p>
+      <h2>Formulario de contacto</h2>
     </div>
-    <!-- FASE 9 → layout formulario + panel de datos (teléfono, dirección, correo "pendiente") -->
+
+    <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:2rem; align-items:start; max-width:980px; margin:0 auto;" class="contact-layout">
+      <!-- ASUNCIÓN: action="#" como placeholder — aún no hay correo corporativo
+           ni backend. Conectar cuando exista el dominio/correo. -->
+      <form action="#" method="POST" class="glass-panel reveal">
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo">
+        </div>
+        <div class="field">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" required placeholder="usted@empresa.com">
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Su número de contacto">
+        </div>
+        <div class="field">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa (opcional)">
+        </div>
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntenos sobre su proyecto"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary">Enviar</button>
+      </form>
+
+      <div class="glass-panel reveal" style="display:flex; flex-direction:column; gap:1.5rem;">
+        <div>
+          <span class="readout">Teléfono</span>
+          <p style="margin-top:0.4rem; color:var(--text-dim);"><a href="tel:+16478950939" style="color:inherit;">647 895 0939</a></p>
+        </div>
+        <div>
+          <span class="readout">Correo</span>
+          <p style="margin-top:0.4rem; color:var(--text-dim);">Pendiente — sin dominio propio todavía</p>
+        </div>
+        <div>
+          <span class="readout">Dirección</span>
+          <p style="margin-top:0.4rem; color:var(--text-dim);">37 Kodiak Crescent, Unit 11<br>Toronto, ON M3J 3G5</p>
+        </div>
+        <div>
+          <span class="readout">Redes sociales</span>
+          <p style="margin-top:0.4rem; color:var(--text-faint);">Próximamente</p>
+          <!-- FASE 11 → íconos/enlaces reales de redes sociales (aún no disponibles) -->
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 780px) {
+    .contact-layout { grid-template-columns: 1fr !important; }
+  }
+</style>
 
 <!-- ═══════════════════════════════════════════
      FOOTER — BLOQUE COMPARTIDO (idéntico en las 7 páginas).
