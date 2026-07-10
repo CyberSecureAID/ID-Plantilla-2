@@ -50,11 +50,18 @@
 <body>
 
 <!-- ═══════════════════════════════════════════
-     HEADER — cristal flotante, con zona de logo dedicada
+     HEADER — cristal flotante, con zona de logo dedicada.
+     ─────────────────────────────────────────────────────
+     BLOQUE COMPARTIDO por las 7 páginas. Al replicarlo en las
+     demás páginas, lo ÚNICO que cambia es cuál enlace del nav
+     lleva aria-current="page" (marca la página activa). El
+     resaltado visual de esa marca se define en css/header.css
+     (siguiente archivo de la Fase 1).
 ═══════════════════════════════════════════════ -->
 <header class="site-header">
   <div class="container site-header__row">
-    <a href="#top" class="site-header__mark">
+    <!-- El logo lleva a Inicio (index.html), no a un ancla. -->
+    <a href="index.html" class="site-header__mark">
       <!-- ASUNCIÓN: monograma de cristal como placeholder de logo.
            Sustituir <span class="site-header__mark-glyph"> por
            <img src="images/logo.svg" ...> en cuanto exista el
@@ -63,13 +70,17 @@
       <span class="site-header__mark-word">ETEXCA</span>
     </a>
     <nav class="site-nav" id="site-nav">
-      <a href="#servicios">Servicios</a>
-      <a href="#diferenciadores">Firma</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#contacto" class="site-nav__cta btn btn--ghost btn--sm">Solicitar consulta</a>
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contratacion-indigena.html">Contratación Indígena</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="carreras.html">Carreras</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="contacto.html" class="site-nav__cta btn btn--ghost btn--sm">Solicitar consulta</a>
     </nav>
     <div class="site-header__actions">
-      <a href="#contacto" class="btn btn--ghost btn--sm site-header__cta">Solicitar consulta</a>
+      <a href="contacto.html" class="btn btn--ghost btn--sm site-header__cta">Solicitar consulta</a>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar a modo claro" aria-pressed="false" title="Cambiar tema">
         <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
@@ -98,17 +109,15 @@
 </header>
 
 <!-- ═══════════════════════════════════════════
-     § HERO
+     § HERO — Inicio
      El marco (.hero__frame) tiene aspect-ratio: 1600/667 —
-     la proporción EXACTA de hero-bg.webp. Eso significa que la
-     imagen llena el marco al 100%, sin recortar ni un píxel y
-     sin zoom, porque el marco y la imagen tienen la misma forma.
-     La sección ya no fuerza una altura de pantalla completa: se
-     adapta a la altura real que da la imagen (pide del cliente).
-     El panel de texto es un hermano del marco, no un hijo — en
-     escritorio se superpone a la izquierda vía position:absolute
-     (ver layout.css), en móvil simplemente cae debajo del marco
-     en flujo normal, así nunca se corta ni se sale del encuadre.
+     la proporción EXACTA de hero-bg.webp. La imagen llena el
+     marco al 100%, sin recortar ni un píxel y sin zoom.
+     El panel de texto es hermano del marco: en escritorio se
+     superpone a la izquierda (position:absolute, ver layout.css),
+     en móvil cae debajo del marco en flujo normal.
+     NOTA: imágenes del hero SIN TOCAR (pendiente confirmar con el
+     cliente si son definitivas o placeholder).
 ═══════════════════════════════════════════════ -->
 <section class="hero" id="top">
   <div class="hero__frame">
@@ -123,7 +132,8 @@
         <img class="hero__id-card-img hero__id-card-img--dark" src="images/hero-id-card-dark.webp" alt="ETEXCA — Ingeniería &amp; Construcción" loading="eager">
         <img class="hero__id-card-img hero__id-card-img--light" src="images/hero-id-card-light.webp" alt="" aria-hidden="true" loading="eager">
         <div class="hero__actions">
-          <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+          <!-- Enlace real a la página de Servicios (ya no ancla interna). -->
+          <a href="servicios.html" class="btn btn--ghost">Ver servicios</a>
         </div>
       </div>
     </div>
@@ -131,180 +141,57 @@
 </section>
 
 <!-- ═══════════════════════════════════════════
-     § SERVICIOS — grid de tarjetas de cristal
+     § PRESENTACIÓN / PROPUESTA DE VALOR
+     ─────────────────────────────────────────────────────
+     ESQUELETO (Fase 1). El contenido real entra en la FASE 3:
+       · Presentación de la empresa (North Peak Construction
+         Alliance Inc.)
+       · Propuesta de valor
+       · Ventajas competitivas
+     No se inventa copy aquí — solo el andamiaje de la sección.
 ═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="servicios" style="background:var(--void);">
+<section class="section grid-texture" id="presentacion" style="background:var(--void);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="readout">Áreas de práctica</span>
-      <h2>Servicios</h2>
-      <p class="lede">Disciplinas técnicas que cubren el ciclo completo del proyecto, desde el cálculo estructural hasta la ejecución en obra.</p>
+      <span class="readout">Inicio</span>
+      <!-- FASE 3 → título + presentación de la empresa -->
+      <p class="lede" style="color:var(--text-faint);">[ Sección: presentación y propuesta de valor — contenido en Fase 3 ]</p>
     </div>
-
-    <div class="service-grid reveal-stagger">
-      <article class="service-card reveal reveal-left" style="--i:0;">
-        <span class="readout">Mod / 01</span>
-        <h3>Ingeniería estructural y diseño técnico</h3>
-        <p>Cálculo, modelado y validación estructural para proyectos residenciales, comerciales e industriales.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:1;">
-        <span class="readout">Mod / 02</span>
-        <h3>Modelado BIM</h3>
-        <p>Coordinación digital del proyecto para detectar conflictos de diseño antes de que lleguen a obra.</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:2;">
-        <span class="readout">Mod / 03</span>
-        <h3>Gestión y supervisión de obra</h3>
-        <p>Control técnico de avance, calidad y cumplimiento normativo durante la ejecución del proyecto.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:3;">
-        <span class="readout">Mod / 04</span>
-        <h3>Eficiencia energética y sostenibilidad</h3>
-        <p>Análisis técnico para optimizar consumo energético y cumplimiento de normativa ambiental.</p>
-      </article>
-      <!-- ASUNCIÓN: lista de servicios pendiente de confirmación del cliente (ver README §5) -->
-      <!-- Nota: se retiró "Consultoría en tecnología de la construcción" para dejar
-           un número par de tarjetas (4) en grid 2×2, a pedido del cliente. -->
-    </div>
+    <!-- FASE 3 → bloque de ventajas competitivas -->
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
-     § DIFERENCIADORES
-     Misma técnica de marco con aspect-ratio exacto que el hero.
-     El panel de texto se superpone al marco (izquierda) en
-     escritorio; las 3 tarjetas de eje (trait-grid) YA NO están
-     encima de la imagen — viven debajo, en flujo normal, sobre
-     el fondo sólido de la sección. Así nunca se salen del
-     encuadre de la imagen, sin importar qué tan alto sea el texto.
+     § RESUMEN DE SERVICIOS + CTA
+     ─────────────────────────────────────────────────────
+     ESQUELETO (Fase 1). El contenido real entra en la FASE 3:
+       · Resumen de los 10 servicios, cada uno enlazando a
+         servicios.html
+       · Llamado a la acción (CTA) hacia contacto.html
+     La grilla completa de servicios vive en servicios.html
+     (Fase 5), no aquí.
 ═══════════════════════════════════════════════ -->
-<section class="banner" id="diferenciadores">
-  <div class="banner__hero">
-    <div class="banner__frame">
-      <img class="banner__frame-img banner__frame-img--dark" src="images/servicios-bg.webp" alt="Mesa de trabajo con casco de obra, planos técnicos y modelo digital de edificio en un entorno de construcción nocturno" loading="lazy">
-      <img class="banner__frame-img banner__frame-img--light" src="images/servicios-bg-light.webp" alt="" aria-hidden="true" loading="lazy">
-      <div class="banner__frame-overlay"></div>
-    </div>
-
-    <div class="banner__panel-wrap">
-      <div class="container">
-        <div class="banner__panel glass-panel reveal reveal-right">
-          <span class="readout">Por qué ETEXCA</span>
-          <h2>Rigor de ingeniería, herramientas actuales.</h2>
-          <p class="lede">Combinamos los estándares técnicos de la ingeniería de la construcción con tecnología digital de proyecto — desde modelado BIM hasta control de obra — para que cada decisión técnica se tome con datos, no con suposiciones.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container grid-texture">
-    <div class="trait-grid reveal-stagger">
-      <div class="trait-card reveal" style="--i:0;">
-        <div class="trait-card__flip" tabindex="0" role="button" aria-label="Ingeniería con datos — toca para ver más">
-          <div class="trait-card__face trait-card__face--front glass-panel">
-            <span class="readout">Eje / 01</span>
-            <h3>Ingeniería con datos</h3>
-            <p>Cada recomendación técnica se respalda en modelado y cálculo, no en supuestos de obra.</p>
-          </div>
-          <div class="trait-card__face trait-card__face--back glass-panel">
-            <h3>Ingeniería con datos</h3>
-            <p>Memoria de cálculo verificable en cada entrega.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trait-card reveal" style="--i:1;">
-        <div class="trait-card__flip" tabindex="0" role="button" aria-label="Stack digital integrado — toca para ver más">
-          <div class="trait-card__face trait-card__face--front glass-panel">
-            <span class="readout">Eje / 02</span>
-            <h3>Stack digital integrado</h3>
-            <p>BIM, control de obra y gestión documental conviven en un mismo flujo de proyecto.</p>
-          </div>
-          <div class="trait-card__face trait-card__face--back glass-panel">
-            <h3>Stack digital integrado</h3>
-            <p>Un solo flujo digital, cero información dispersa.</p>
-          </div>
-        </div>
-      </div>
-      <div class="trait-card reveal" style="--i:2;">
-        <div class="trait-card__flip" tabindex="0" role="button" aria-label="Ejecución en obra real — toca para ver más">
-          <div class="trait-card__face trait-card__face--front glass-panel">
-            <span class="readout">Eje / 03</span>
-            <h3>Ejecución en obra real</h3>
-            <p>Supervisión técnica en sitio, no solo entregables de escritorio.</p>
-          </div>
-          <div class="trait-card__face trait-card__face--back glass-panel">
-            <h3>Ejecución en obra real</h3>
-            <p>Presencia técnica real, no solo reportes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ASUNCIÓN: 3 ejes de diferenciador redactados a partir del §03 original
-     de una sola sección genérica — confirmar o ajustar con el cliente. -->
-
-<!-- ═══════════════════════════════════════════
-     § CONTACTO
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="contacto" style="background:var(--void-soft);">
+<section class="section grid-texture" id="resumen-servicios" style="background:var(--void-soft);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="readout">Contacto</span>
-      <h2>Solicitar una consulta</h2>
-      <p class="lede">Cuéntenos sobre su proyecto y le responderemos con los siguientes pasos técnicos.</p>
+      <span class="readout">Servicios</span>
+      <!-- FASE 3 → resumen de servicios con enlaces a servicios.html -->
+      <p class="lede" style="color:var(--text-faint);">[ Sección: resumen de servicios y CTA — contenido en Fase 3 ]</p>
+      <a href="servicios.html" class="btn btn--ghost btn--sm" style="margin-top:var(--space-2);">Ver todos los servicios</a>
     </div>
-
-    <div style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:2rem; align-items:start; max-width:980px; margin:0 auto;" class="contact-layout">
-      <!-- ASUNCIÓN: action="#" como placeholder. Conectar a Web3Forms/EmailJS/mailto según lo confirmado. -->
-      <form action="#" method="POST" class="glass-panel viewport reveal">
-        <div class="field">
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo">
-        </div>
-        <div class="field">
-          <label for="email">Correo</label>
-          <input type="email" id="email" name="email" required placeholder="usted@empresa.com">
-        </div>
-        <div class="field">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntenos sobre su proyecto"></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary">Enviar</button>
-      </form>
-
-      <div class="glass-panel reveal" style="display:flex; flex-direction:column; gap:1.5rem;">
-        <div>
-          <span class="readout">Teléfono</span>
-          <p style="margin-top:0.4rem; color:var(--text-dim);">Pendiente</p>
-        </div>
-        <div>
-          <span class="readout">Correo</span>
-          <p style="margin-top:0.4rem; color:var(--text-dim);">Pendiente — sin dominio propio todavía</p>
-        </div>
-        <div>
-          <span class="readout">Ubicación</span>
-          <p style="margin-top:0.4rem; color:var(--text-dim);">Canadá</p>
-        </div>
-      </div>
-    </div>
+    <!-- FASE 3 → CTA final hacia contacto.html -->
   </div>
 </section>
 
-<style>
-  @media (max-width: 780px) {
-    .contact-layout { grid-template-columns: 1fr !important; }
-  }
-</style>
-
 <!-- ═══════════════════════════════════════════
-     FOOTER
+     FOOTER — BLOQUE COMPARTIDO por las 7 páginas.
+     Se replica idéntico en cada página. Los enlaces de
+     navegación apuntan a las páginas reales (no anclas).
 ═══════════════════════════════════════════════ -->
 <footer class="site-footer grid-texture">
   <div class="container site-footer__top">
     <div class="site-footer__brand">
-      <a href="#top" class="site-footer__mark">
+      <a href="index.html" class="site-footer__mark">
         <span class="site-footer__mark-glyph">E</span>
         <span class="site-footer__mark-word">ETEXCA</span>
       </a>
@@ -314,19 +201,19 @@
     <div class="site-footer__col">
       <span class="readout">Navegación</span>
       <nav class="site-footer__links">
-        <a href="#servicios">Servicios</a>
-        <a href="#diferenciadores">Firma</a>
-        <a href="#contacto">Contacto</a>
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="contratacion-indigena.html">Contratación Indígena</a>
       </nav>
     </div>
 
     <div class="site-footer__col">
-      <span class="readout">Áreas de práctica</span>
+      <span class="readout">Explorar</span>
       <nav class="site-footer__links">
-        <a href="#servicios">Ingeniería estructural</a>
-        <a href="#servicios">Modelado BIM</a>
-        <a href="#servicios">Gestión de obra</a>
-        <a href="#servicios">Eficiencia energética</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="carreras.html">Carreras</a>
+        <a href="contacto.html">Contacto</a>
       </nav>
     </div>
 
@@ -346,12 +233,12 @@
   </div>
 </footer>
 
-<!-- CTA flotante — píldora de cristal discreta, reemplaza la barra
-     inferior de ancho completo. Aparece al salir del hero, se oculta
-     cerca del formulario de contacto. -->
+<!-- CTA flotante — píldora de cristal discreta. Aparece al salir
+     del hero, se oculta cerca del contenido de contacto.
+     Ahora enlaza a la página de contacto (no a un ancla). -->
 <div class="float-cta">
   <span class="float-cta__text">¿Necesita asesoría?</span>
-  <a href="#contacto" class="btn btn--primary btn--sm">Agendar consulta</a>
+  <a href="contacto.html" class="btn btn--primary btn--sm">Agendar consulta</a>
 </div>
 
 <script src="js/main.js?v=10"></script>
