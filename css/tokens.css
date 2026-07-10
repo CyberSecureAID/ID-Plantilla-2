@@ -102,14 +102,14 @@
    texto/acento sobre fondo claro.
 ═══════════════════════════════════════════════════════════ */
 html[data-theme="light"] {
-  --void:            #F7F5EF;
-  --void-soft:       #FFFFFF;
-  --void-elevated:   #ECE7DA;
+  --void:            #ECE8DE;
+  --void-soft:       #F6F3EC;
+  --void-elevated:   #E1DBCC;
 
-  --glass-fill:       rgba(30, 24, 10, 0.045);
-  --glass-fill-hover: rgba(30, 24, 10, 0.09);
-  --glass-border:     rgba(30, 24, 10, 0.12);
-  --glass-border-strong: rgba(30, 24, 10, 0.24);
+  --glass-fill:       rgba(30, 24, 10, 0.05);
+  --glass-fill-hover: rgba(30, 24, 10, 0.10);
+  --glass-border:     rgba(30, 24, 10, 0.16);
+  --glass-border-strong: rgba(30, 24, 10, 0.30);
 
   --cyan:             #9A7817;
   --cyan-dim:         rgba(154, 120, 23, 0.55);
@@ -122,11 +122,11 @@ html[data-theme="light"] {
   --text-faint:       rgba(26, 23, 18, 0.40);
   --text-on-cyan:     #FFFFFF;
 
-  --rule:             rgba(30, 24, 10, 0.13);
-  --rule-strong:      rgba(30, 24, 10, 0.24);
+  --rule:             rgba(30, 24, 10, 0.15);
+  --rule-strong:      rgba(30, 24, 10, 0.26);
 
-  --surface-rgb:      255, 255, 255;
-  --overlay-rgb:      247, 245, 239;
+  --surface-rgb:      246, 243, 236;
+  --overlay-rgb:      236, 232, 222;
   --radial-accent:    rgba(154, 120, 23, 0.08);
-  --grid-line:        rgba(30, 24, 10, 0.13);
+  --grid-line:        rgba(30, 24, 10, 0.12);
 }

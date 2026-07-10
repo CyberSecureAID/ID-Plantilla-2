@@ -564,3 +564,35 @@
 .cta-band h2 { margin: 0.6rem 0; }
 .cta-band .lede { margin: 0 auto 1.5rem; }
 .cta-band__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ═══════════════════════════════════════════════
+   SHEEN DEL BOTÓN PRIMARIO — un destello recorre el botón al pasar
+   el cursor, para que el dorado no se vea crudo (sobre todo en claro).
+═══════════════════════════════════════════════ */
+.btn--primary { overflow: hidden; }
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.30) 50%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 0.6s var(--ease-soft);
+  pointer-events: none;
+}
+.btn--primary:hover::after { transform: translateX(130%); }
+
+/* ═══════════════════════════════════════════════
+   BANNER EN FRANJA COMPACTA (.hero--band) — para el banner de imagen
+   de Servicios: misma altura aproximada que las cabeceras de página
+   (no un hero a pantalla completa), y fundido inferior más largo para
+   que el corte con la página sea imperceptible en cualquier tema.
+═══════════════════════════════════════════════ */
+.hero--band .hero__frame {
+  aspect-ratio: auto;
+  height: clamp(300px, 40vw, 400px);
+}
+.hero--band .hero__frame-overlay {
+  background:
+    linear-gradient(180deg, transparent 42%, var(--void) 100%),
+    linear-gradient(90deg, rgba(var(--overlay-rgb),0.55) 0%, rgba(var(--overlay-rgb),0.22) 42%, transparent 64%);
+}
