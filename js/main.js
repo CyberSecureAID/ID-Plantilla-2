@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFloatCta();
   initTraitFlip();
   initThemeToggle();
+  initSmoothScroll();
 });
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -164,4 +165,65 @@ function initThemeToggle() {
     const i = order.indexOf(current());
     applyTheme(order[(i + 1) % order.length], true);
   });
+}
+
+/* ═══════════════════════════════════════════════
+   INERCIA DE SCROLL (suavizado con rueda)
+   ───────────────────────────────────────────────
+   Suaviza el scroll de rueda con un lerp por requestAnimationFrame.
+   Clave anti-brincos: cuando falta < 0.5px para el destino, se ancla
+   al valor exacto y se DETIENE el bucle. Ese "asentamiento" elimina
+   el micro-rebote del final (sub-píxeles que nunca terminan de cuadrar).
+
+   Guardas: se desactiva con prefers-reduced-motion, en pantallas
+   táctiles (ya tienen inercia nativa) y en punteros no finos. No
+   secuestra el scroll dentro de campos de texto ni el zoom (Ctrl+rueda).
+═══════════════════════════════════════════════ */
+function initSmoothScroll() {
+  if (prefersReducedMotion) return;
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if ('ontouchstart' in window && navigator.maxTouchPoints > 0) return;
+
+  const root = document.scrollingElement || document.documentElement;
+  const EASE = 0.1;
+  let target = window.scrollY;
+  let current = window.scrollY;
+  let running = false;
+
+  const maxScroll = () => root.scrollHeight - window.innerHeight;
+
+  function frame() {
+    const diff = target - current;
+    if (Math.abs(diff) < 0.5) {          // umbral de asentamiento
+      current = target;
+      window.scrollTo(0, Math.round(current));
+      running = false;
+      return;                            // se detiene: sin micro-brincos
+    }
+    current += diff * EASE;
+    window.scrollTo(0, current);
+    requestAnimationFrame(frame);
+  }
+
+  function onWheel(e) {
+    if (e.ctrlKey) return;               // zoom del navegador
+    if (e.target.closest && e.target.closest('textarea, [data-native-scroll]')) return;
+
+    e.preventDefault();
+
+    let delta = e.deltaY;
+    if (e.deltaMode === 1) delta *= 16;                  // líneas → px
+    else if (e.deltaMode === 2) delta *= window.innerHeight; // páginas → px
+
+    if (!running) target = window.scrollY;   // re-sincroniza con scrolls nativos
+    target = Math.max(0, Math.min(maxScroll(), target + delta));
+
+    if (!running) {
+      running = true;
+      current = window.scrollY;
+      requestAnimationFrame(frame);
+    }
+  }
+
+  window.addEventListener('wheel', onWheel, { passive: false });
 }
