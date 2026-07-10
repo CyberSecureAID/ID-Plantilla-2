@@ -137,21 +137,21 @@ function initThemeToggle() {
   if (!toggle) return;
 
   const root = document.documentElement;
-  const order = ['dark', 'dim', 'light'];
+  const order = ['light', 'dim', 'dark'];
   const labels = {
-    dark:  'Cambiar a modo penumbra',
-    dim:   'Cambiar a modo claro',
-    light: 'Cambiar a modo oscuro'
+    light: 'Cambiar a modo azul',
+    dim:   'Cambiar a modo oscuro',
+    dark:  'Cambiar a modo claro'
   };
 
   const current = () => {
     const t = root.getAttribute('data-theme');
-    return order.includes(t) ? t : 'dark';
+    return order.includes(t) ? t : 'light';
   };
 
   const applyTheme = (theme, persist) => {
     root.setAttribute('data-theme', theme);
-    toggle.setAttribute('aria-label', labels[theme] || labels.dark);
+    toggle.setAttribute('aria-label', labels[theme] || labels.light);
     if (persist) {
       try { localStorage.setItem('etexca-theme', theme); } catch (e) { /* almacenamiento no disponible */ }
     }
