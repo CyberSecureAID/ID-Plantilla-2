@@ -117,29 +117,40 @@
 </header>
 
 <!-- ═══════════════════════════════════════════
-     § BANNER DE SERVICIOS — imagen con crossfade por tema, igual
-     técnica que el hero de Inicio. Las dos versiones (día/noche)
-     están superpuestas; cuál se ve depende de data-theme en <html>.
-     El texto se superpone en escritorio y cae debajo en móvil.
+     § CABECERA DE SERVICIOS — sin imagen (decisión del cliente).
+     PUERTA ABIERTA: para reactivar el banner con imagen, borra esta
+     <section> y descomenta el bloque de más abajo (usa
+     images/servicios-bg[-light].webp con crossfade por tema).
 ═══════════════════════════════════════════════ -->
+<section class="page-hero grid-texture" id="servicios">
+  <div class="container">
+    <div class="page-hero__inner reveal">
+      <span class="readout">Áreas de práctica</span>
+      <h1>Servicios</h1>
+      <p class="lede">Cubrimos el ciclo completo del proyecto, desde la gestión y la contratación general hasta la ejecución especializada en obra, con un mismo estándar de seguridad y calidad en Ontario y en todo Canadá.</p>
+      <div class="page-hero__rule"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPCIÓN CON IMAGEN (reactivar borrando la <section> de arriba):
 <section class="hero hero--band" id="servicios">
   <div class="hero__frame">
     <img class="hero__frame-img hero__frame-img--dark" src="images/servicios-bg.webp" alt="Casco de obra, planos técnicos y modelo digital de edificio sobre una mesa de trabajo" loading="eager">
     <img class="hero__frame-img hero__frame-img--light" src="images/servicios-bg-light.webp" alt="" aria-hidden="true" loading="eager">
     <div class="hero__frame-overlay"></div>
   </div>
-
-  <div class="hero__panel-wrap">
-    <div class="container">
-      <div class="page-hero__inner reveal">
-        <span class="readout">Áreas de práctica</span>
-        <h1>Servicios</h1>
-        <p class="lede">Cubrimos el ciclo completo del proyecto, desde la gestión y la contratación general hasta la ejecución especializada en obra, con un mismo estándar de seguridad y calidad en Ontario y en todo Canadá.</p>
-        <div class="page-hero__rule"></div>
-      </div>
+  <div class="hero__panel-wrap"><div class="container">
+    <div class="page-hero__inner reveal">
+      <span class="readout">Áreas de práctica</span>
+      <h1>Servicios</h1>
+      <p class="lede">Cubrimos el ciclo completo del proyecto, desde la gestión y la contratación general hasta la ejecución especializada en obra, con un mismo estándar de seguridad y calidad en Ontario y en todo Canadá.</p>
+      <div class="page-hero__rule"></div>
     </div>
-  </div>
+  </div></div>
 </section>
+-->
+
 
 <section class="section" id="grilla-servicios" style="background:var(--void);">
   <div class="container">
@@ -222,7 +233,7 @@
   </div>
 
   <div class="container site-footer__bottom">
-    <span>© <span id="year"></span> North Peak Construction Alliance — Tecnología e Ingeniería de la Construcción</span>
+    <span>© <span id="year"></span> North Peak Construction Alliance Inc. · Todos los derechos reservados</span>
     <a href="#top" class="site-footer__top-link">Volver arriba ↑</a>
   </div>
 </footer>
