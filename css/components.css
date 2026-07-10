@@ -206,6 +206,46 @@
   background: var(--glass-fill-hover);
 }
 
+/* Input de archivo: el botón nativo se estiliza como píldora de cristal,
+   coherente con el resto del sistema (antes se veía sin estilo). */
+.field input[type="file"] {
+  padding: 0.55rem 0.6rem;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.field input[type="file"]::file-selector-button {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1rem;
+  margin-right: 0.9rem;
+  cursor: pointer;
+  transition: background var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+.field input[type="file"]::file-selector-button:hover {
+  background: var(--glass-fill-hover);
+  border-color: var(--glass-border-strong);
+}
+
+/* Formulario en rejilla de 2 columnas: da estructura y evita el look
+   de "formulario apilado básico". Campos anchos (textarea, archivo)
+   ocupan las dos columnas con .field--full. En móvil, una sola columna. */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1.25rem;
+}
+.form-grid .field--full { grid-column: 1 / -1; }
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
 /* ═══════════════════════════════════════════════
    CTA FLOTANTE — reemplaza la barra inferior de ancho
    completo. Píldora de cristal discreta, no intrusiva,
