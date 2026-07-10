@@ -111,8 +111,8 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Carreras y empleo</span>
-      <!-- FASE 8 → título + intro de la página -->
-      <p class="lede" style="color:var(--text-faint);">[ Encabezado de "Carreras y Empleo" — contenido en Fase 8 ]</p>
+      <h1>Crezca con nosotros</h1>
+      <p class="lede">Somos una empresa en crecimiento y buscamos personas y socios que compartan nuestro compromiso con la seguridad, la calidad y la participación indígena. Conozca cómo trabajar o colaborar con North Peak Construction Alliance Inc.</p>
     </div>
   </div>
 </section>
@@ -126,7 +126,21 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Oportunidades</span>
-      <p class="lede" style="color:var(--text-faint);">[ Sección: oportunidades laborales + reclutamiento de personal calificado — contenido en Fase 8 ]</p>
+      <h2>Oportunidades laborales</h2>
+      <p class="lede">Incorporamos personal calificado para las distintas etapas y especialidades de nuestros proyectos. Si tiene experiencia en el sector de la construcción y quiere sumarse a un equipo en expansión, nos gustaría conocerle.</p>
+    </div>
+
+    <div class="service-grid reveal-stagger">
+      <article class="service-card reveal reveal-left" style="--i:0;">
+        <span class="readout">Perfiles / 01</span>
+        <h3>Personal de obra y oficios</h3>
+        <p>Mano de obra calificada para las distintas especialidades del proyecto.</p>
+      </article>
+      <article class="service-card reveal reveal-right" style="--i:1;">
+        <span class="readout">Perfiles / 02</span>
+        <h3>Perfiles técnicos y de gestión</h3>
+        <p>Personal de supervisión, coordinación y gestión de proyectos.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -139,7 +153,8 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Subcontratistas</span>
-      <p class="lede" style="color:var(--text-faint);">[ Sección: registro de subcontratistas — contenido en Fase 8 ]</p>
+      <h2>Registro de subcontratistas</h2>
+      <p class="lede">¿Es una empresa subcontratista o proveedora? Trabajamos con socios confiables para la ejecución de nuestros proyectos. Regístrese a través del formulario y le contactaremos cuando surjan oportunidades acordes a su especialidad.</p>
     </div>
   </div>
 </section>
@@ -155,8 +170,39 @@
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Aplicar</span>
-      <p class="lede" style="color:var(--text-faint);">[ Formulario de aplicación (.field, action="#") — contenido en Fase 8 ]</p>
+      <h2>Envíe su solicitud</h2>
+      <p class="lede">Complete el formulario y adjunte su CV. Sirve tanto para postular a un puesto como para registrarse como subcontratista.</p>
     </div>
+
+    <!-- ASUNCIÓN: action="#" como placeholder — aún no hay correo corporativo
+         ni backend (ver Fase 9). Conectar cuando exista el dominio/correo. -->
+    <form action="#" method="POST" enctype="multipart/form-data" class="glass-panel reveal" style="max-width:640px; margin:0 auto;">
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Su nombre completo">
+      </div>
+      <div class="field">
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="email" required placeholder="usted@correo.com">
+      </div>
+      <div class="field">
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Su número de contacto">
+      </div>
+      <div class="field">
+        <label for="puesto">Puesto de interés</label>
+        <input type="text" id="puesto" name="puesto" placeholder="Puesto o especialidad / subcontratista">
+      </div>
+      <div class="field">
+        <label for="cv">Adjuntar CV</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx">
+      </div>
+      <div class="field">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntenos sobre su experiencia"></textarea>
+      </div>
+      <button type="submit" class="btn btn--primary">Enviar solicitud</button>
+    </form>
   </div>
 </section>
 
