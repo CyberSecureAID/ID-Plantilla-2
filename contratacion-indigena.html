@@ -42,11 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css?v=20">
-<link rel="stylesheet" href="css/style.css?v=20">
-<link rel="stylesheet" href="css/layout.css?v=20">
-<link rel="stylesheet" href="css/header.css?v=20">
-<link rel="stylesheet" href="css/components.css?v=20">
+<link rel="stylesheet" href="css/tokens.css?v=21">
+<link rel="stylesheet" href="css/style.css?v=21">
+<link rel="stylesheet" href="css/layout.css?v=21">
+<link rel="stylesheet" href="css/header.css?v=21">
+<link rel="stylesheet" href="css/components.css?v=21">
 
 <!-- ═══ Google Search Console: pega tu código de verificación (método "etiqueta HTML") ═══ -->
 <meta name="google-site-verification" content="PEGAR_CODIGO_DE_VERIFICACION">
@@ -119,119 +119,75 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
-     § ENCABEZADO DE PÁGINA
-     Página estratégica (la más importante para licitaciones, según
-     el cliente). Sin hero de imagen → padding-top extra.
-     ESQUELETO (Fase 1). Copy real → FASE 6.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="contratacion-indigena" style="background:var(--void); padding-top:var(--space-6);">
+<section class="page-hero grid-texture" id="contratacion-indigena">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="page-hero__inner reveal">
       <span class="readout">Contratación y compras indígenas</span>
       <h1>Su socio para la participación indígena en construcción</h1>
       <p class="lede">Ayudamos a contratistas generales, organismos públicos y clientes privados a cumplir sus objetivos de contratación y compras indígenas, con capacidad real de ejecución en Ontario y en todo Canadá.</p>
+      <div class="page-hero__rule"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § ESTRUCTURA DE PROPIEDAD INDÍGENA
-     ESQUELETO (Fase 1). Contenido → FASE 6.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="propiedad-indigena" style="background:var(--void-soft);">
-  <div class="container">
-    <div class="section-head reveal">
+<section class="section" id="propiedad-indigena" style="background:var(--void-soft);">
+  <div class="container split">
+    <div class="reveal reveal-left">
       <span class="readout">Estructura de propiedad</span>
       <h2>Una empresa con participación indígena</h2>
-      <p class="lede">North Peak Construction Alliance Inc. cuenta con participación indígena en su estructura. Esa participación es auténtica y forma parte de nuestra identidad, no un requisito de fachada, y respalda el valor que aportamos a proyectos con objetivos de inclusión indígena.</p>
+      <p>North Peak Construction Alliance Inc. cuenta con participación indígena en su estructura, parte de nuestra identidad y del valor que aportamos a proyectos con objetivos de inclusión indígena.</p>
+    </div>
+    <div class="reveal reveal-right">
+      <p class="statement">Participación indígena auténtica, no un requisito de fachada.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § BENEFICIOS PARA CLIENTES Y ORGANISMOS PÚBLICOS
-     ESQUELETO (Fase 1). Contenido → FASE 6.
-═══════════════════════════════════════════════ -->
 <section class="section grid-texture" id="beneficios" style="background:var(--void);">
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Beneficios</span>
       <h2>Beneficios para clientes y organismos públicos</h2>
     </div>
-
     <div class="service-grid reveal-stagger">
-      <article class="service-card reveal reveal-left" style="--i:0;">
-        <span class="readout">Beneficio / 01</span>
-        <h3>Cumplimiento de objetivos indígenas</h3>
-        <p>Facilitamos el cumplimiento de metas de contratación y compras indígenas en licitaciones y contratos.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:1;">
-        <span class="readout">Beneficio / 02</span>
-        <h3>Diversidad de proveedores</h3>
-        <p>Aportamos a los programas de diversidad de proveedores como socio con participación indígena.</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:2;">
-        <span class="readout">Beneficio / 03</span>
-        <h3>Capacidad de ejecución</h3>
-        <p>Combinamos el valor de la participación indígena con capacidad técnica real para ejecutar la obra.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:3;">
-        <span class="readout">Beneficio / 04</span>
-        <h3>Impacto comunitario</h3>
-        <p>Contribuimos a la participación y a las oportunidades para las comunidades indígenas involucradas.</p>
-      </article>
+      <article class="service-card reveal reveal-left" style="--i:0;"><span class="readout">Beneficio / 01</span><h3>Cumplimiento de objetivos indígenas</h3><p>Facilitamos el cumplimiento de metas de contratación y compras indígenas en licitaciones y contratos.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:1;"><span class="readout">Beneficio / 02</span><h3>Diversidad de proveedores</h3><p>Aportamos a los programas de diversidad de proveedores como socio con participación indígena.</p></article>
+      <article class="service-card reveal reveal-left" style="--i:2;"><span class="readout">Beneficio / 03</span><h3>Capacidad de ejecución</h3><p>Combinamos el valor de la participación indígena con capacidad técnica real para ejecutar la obra.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:3;"><span class="readout">Beneficio / 04</span><h3>Impacto comunitario</h3><p>Contribuimos a la participación y a las oportunidades para las comunidades indígenas involucradas.</p></article>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § PARTICIPACIÓN INDÍGENA EN LOS PROYECTOS
-     ESQUELETO (Fase 1). Contenido → FASE 6.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="participacion" style="background:var(--void-soft);">
-  <div class="container">
-    <div class="section-head reveal">
+<section class="section" id="participacion" style="background:var(--void-soft);">
+  <div class="container split split--reverse">
+    <div class="reveal reveal-left">
+      <p class="statement">Impacto concreto y verificable a lo largo del proyecto, no solo declarativo.</p>
+    </div>
+    <div class="reveal reveal-right">
       <span class="readout">Participación en proyectos</span>
       <h2>Participación indígena en los proyectos</h2>
-      <p class="lede">Integramos la participación indígena a lo largo del proyecto: en la ejecución, en las oportunidades de trabajo y en la colaboración con las comunidades, de forma que el impacto sea concreto y verificable, y no solo declarativo.</p>
+      <p>Integramos la participación indígena en la ejecución, en las oportunidades de trabajo y en la colaboración con las comunidades.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § CERTIFICACIONES Y REGISTROS
-     ESQUELETO (Fase 1). Contenido → FASE 6:
-       · Dejar como "en proceso" (no hay certificaciones confirmadas).
-═══════════════════════════════════════════════ -->
 <section class="section grid-texture" id="certificaciones" style="background:var(--void);">
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Certificaciones y registros</span>
-      <h2>Certificaciones y registros</h2>
-      <p class="lede">Estamos avanzando en los procesos de certificación y registro correspondientes a la participación indígena. Esta sección se actualizará a medida que se confirmen; preferimos no anticipar acreditaciones que aún están en proceso.</p>
+      <h2>En proceso</h2>
+      <p class="lede">Estamos avanzando en los procesos de certificación y registro de participación indígena. Esta sección se actualizará a medida que se confirmen; preferimos no anticipar acreditaciones que aún están en curso.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § VENTAJA DE PARTICIPACIÓN INDÍGENA (destacada)
-     ESQUELETO (Fase 1). Contenido → FASE 6:
-       · Cómo la empresa ayuda a contratistas generales, organismos
-         públicos y clientes privados a cumplir objetivos de
-         procurement indígena, diversidad de proveedores y
-         participación comunitaria en Ontario y Canadá.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="ventaja-indigena" style="background:var(--void-soft);">
+<section class="section" id="ventaja-indigena" style="background:var(--void-soft);">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="cta-band reveal">
       <span class="readout">Ventaja de participación indígena</span>
       <h2>La Ventaja de Participación Indígena</h2>
-      <p class="lede">Trabajar con North Peak Construction Alliance Inc. permite a contratistas generales, organismos públicos y clientes privados cumplir sus objetivos de procurement indígena, diversidad de proveedores y participación comunitaria, sin renunciar a la calidad ni al cumplimiento técnico de la obra. Convertimos un requisito en una ventaja concreta para su proyecto.</p>
-    </div>
-
-    <div class="reveal" style="text-align:center; margin-top:var(--space-3);">
-      <a href="contacto.html" class="btn btn--primary">Hablemos de su licitación o proyecto</a>
+      <p class="lede">Trabajar con nosotros permite cumplir objetivos de procurement indígena, diversidad de proveedores y participación comunitaria sin renunciar a la calidad ni al cumplimiento técnico de la obra. Convertimos un requisito en una ventaja concreta para su proyecto.</p>
+      <div class="cta-band__actions"><a href="contacto.html" class="btn btn--primary">Hablemos de su licitación o proyecto</a></div>
     </div>
   </div>
 </section>
@@ -297,7 +253,7 @@
   <a href="contacto.html" class="btn btn--primary btn--sm">Agendar consulta</a>
 </div>
 
-<script src="js/main.js?v=10"></script>
+<script src="js/main.js?v=11"></script>
 
 </body>
 </html>

@@ -42,11 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css?v=20">
-<link rel="stylesheet" href="css/style.css?v=20">
-<link rel="stylesheet" href="css/layout.css?v=20">
-<link rel="stylesheet" href="css/header.css?v=20">
-<link rel="stylesheet" href="css/components.css?v=20">
+<link rel="stylesheet" href="css/tokens.css?v=21">
+<link rel="stylesheet" href="css/style.css?v=21">
+<link rel="stylesheet" href="css/layout.css?v=21">
+<link rel="stylesheet" href="css/header.css?v=21">
+<link rel="stylesheet" href="css/components.css?v=21">
 
 <!-- ═══ Google Search Console: pega tu código de verificación (método "etiqueta HTML") ═══ -->
 <meta name="google-site-verification" content="PEGAR_CODIGO_DE_VERIFICACION">
@@ -119,101 +119,45 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
-     § ENCABEZADO DE PÁGINA
-     Página sin hero de imagen → padding-top extra para no quedar
-     bajo el header fijo. ESQUELETO (Fase 1). Copy real → FASE 5.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="servicios" style="background:var(--void); padding-top:var(--space-6);">
+<section class="page-hero grid-texture" id="servicios">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="page-hero__inner reveal">
       <span class="readout">Áreas de práctica</span>
       <h1>Servicios</h1>
       <p class="lede">Cubrimos el ciclo completo del proyecto, desde la gestión y la contratación general hasta la ejecución especializada en obra, con un mismo estándar de seguridad y calidad en Ontario y en todo Canadá.</p>
+      <div class="page-hero__rule"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § GRILLA DE SERVICIOS
-     ─────────────────────────────────────────────────────
-     ESQUELETO (Fase 1). Contenido → FASE 5: las 10 categorías
-     confirmadas, cada una con título + descripción breve, sobre
-     el patrón .service-card / .service-grid ya existente:
-       1. Gestión de Proyectos
-       2. Contratación General
-       3. Suministro de Mano de Obra Calificada
-       4. Construcción Comercial
-       5. Construcción Institucional
-       6. Servicios de Infraestructura
-       7. Restauración y Rehabilitación
-       8. Albañilería y Mampostería
-       9. Concreto y Reparación de Concreto
-      10. Servicios Especializados de Construcción
-     No se inventa copy aquí — solo el andamiaje de la sección.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="grilla-servicios" style="background:var(--void-soft);">
+<section class="section" id="grilla-servicios" style="background:var(--void-soft);">
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">10 categorías</span>
       <h2>Qué hacemos</h2>
     </div>
-
     <div class="service-grid reveal-stagger">
-      <article class="service-card reveal reveal-left" style="--i:0;">
-        <span class="readout">Servicio / 01</span>
-        <h3>Gestión de Proyectos</h3>
-        <p>Planificamos, coordinamos y controlamos el proyecto de principio a fin, cuidando plazos, presupuesto y calidad en cada etapa.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:1;">
-        <span class="readout">Servicio / 02</span>
-        <h3>Contratación General</h3>
-        <p>Ejecutamos obras como contratista general, integrando y gestionando a subcontratistas y proveedores bajo una sola dirección.</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:2;">
-        <span class="readout">Servicio / 03</span>
-        <h3>Suministro de Mano de Obra Calificada</h3>
-        <p>Aportamos personal técnico y de oficio calificado para las distintas etapas y especialidades de la obra.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:3;">
-        <span class="readout">Servicio / 04</span>
-        <h3>Construcción Comercial</h3>
-        <p>Desarrollamos espacios comerciales y de uso mixto, en obra nueva o remodelación, con foco en funcionalidad y acabado.</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:4;">
-        <span class="readout">Servicio / 05</span>
-        <h3>Construcción Institucional</h3>
-        <p>Construimos edificaciones para el sector público e institucional, atendiendo sus requisitos técnicos y normativos.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:5;">
-        <span class="readout">Servicio / 06</span>
-        <h3>Servicios de Infraestructura</h3>
-        <p>Realizamos obras civiles e infraestructura de apoyo que sostienen y complementan el proyecto.</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:0;">
-        <span class="readout">Servicio / 07</span>
-        <h3>Restauración y Rehabilitación</h3>
-        <p>Recuperamos y ponemos en valor edificaciones existentes, prolongando su vida útil con criterio técnico.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:1;">
-        <span class="readout">Servicio / 08</span>
-        <h3>Albañilería y Mampostería</h3>
-        <p>Ejecutamos trabajos de albañilería y mampostería con precisión y acabado técnico.</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:2;">
-        <span class="readout">Servicio / 09</span>
-        <h3>Concreto y Reparación de Concreto</h3>
-        <p>Ejecutamos y reparamos elementos de concreto, atendiendo tanto obra nueva como intervenciones correctivas.</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:3;">
-        <span class="readout">Servicio / 10</span>
-        <h3>Servicios Especializados de Construcción</h3>
-        <p>Ofrecemos soluciones específicas adaptadas a los requerimientos técnicos particulares de cada proyecto.</p>
-      </article>
+      <article class="service-card reveal reveal-left" style="--i:0;"><span class="readout">Servicio / 01</span><h3>Gestión de Proyectos</h3><p>Planificamos, coordinamos y controlamos el proyecto de principio a fin, cuidando plazos, presupuesto y calidad.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:1;"><span class="readout">Servicio / 02</span><h3>Contratación General</h3><p>Ejecutamos obras como contratista general, integrando y gestionando a subcontratistas y proveedores.</p></article>
+      <article class="service-card reveal reveal-left" style="--i:2;"><span class="readout">Servicio / 03</span><h3>Suministro de Mano de Obra Calificada</h3><p>Aportamos personal técnico y de oficio calificado para las distintas etapas de la obra.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:3;"><span class="readout">Servicio / 04</span><h3>Construcción Comercial</h3><p>Espacios comerciales y de uso mixto, en obra nueva o remodelación.</p></article>
+      <article class="service-card reveal reveal-left" style="--i:4;"><span class="readout">Servicio / 05</span><h3>Construcción Institucional</h3><p>Edificaciones para el sector público e institucional, según sus requisitos técnicos y normativos.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:5;"><span class="readout">Servicio / 06</span><h3>Servicios de Infraestructura</h3><p>Obras civiles e infraestructura de apoyo que sostienen y complementan el proyecto.</p></article>
+      <article class="service-card reveal reveal-left" style="--i:0;"><span class="readout">Servicio / 07</span><h3>Restauración y Rehabilitación</h3><p>Recuperamos y ponemos en valor edificaciones existentes con criterio técnico.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:1;"><span class="readout">Servicio / 08</span><h3>Albañilería y Mampostería</h3><p>Trabajos de albañilería y mampostería con precisión y acabado técnico.</p></article>
+      <article class="service-card reveal reveal-left" style="--i:2;"><span class="readout">Servicio / 09</span><h3>Concreto y Reparación de Concreto</h3><p>Ejecutamos y reparamos elementos de concreto, en obra nueva o intervenciones correctivas.</p></article>
+      <article class="service-card reveal reveal-right" style="--i:3;"><span class="readout">Servicio / 10</span><h3>Servicios Especializados de Construcción</h3><p>Soluciones específicas adaptadas a los requerimientos técnicos de cada proyecto.</p></article>
     </div>
+  </div>
+</section>
 
-    <div class="reveal" style="text-align:center; margin-top:var(--space-4);">
-      <a href="contacto.html" class="btn btn--primary">Solicitar una consulta</a>
+<section class="section" style="background:var(--void);">
+  <div class="container">
+    <div class="cta-band reveal">
+      <span class="readout">Siguiente paso</span>
+      <h2>¿Tiene un proyecto en mente?</h2>
+      <p class="lede">Cuéntenos su alcance y le respondemos con los siguientes pasos técnicos.</p>
+      <div class="cta-band__actions"><a href="contacto.html" class="btn btn--primary">Solicitar una consulta</a></div>
     </div>
   </div>
 </section>
@@ -279,7 +223,7 @@
   <a href="contacto.html" class="btn btn--primary btn--sm">Agendar consulta</a>
 </div>
 
-<script src="js/main.js?v=10"></script>
+<script src="js/main.js?v=11"></script>
 
 </body>
 </html>

@@ -42,11 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css?v=20">
-<link rel="stylesheet" href="css/style.css?v=20">
-<link rel="stylesheet" href="css/layout.css?v=20">
-<link rel="stylesheet" href="css/header.css?v=20">
-<link rel="stylesheet" href="css/components.css?v=20">
+<link rel="stylesheet" href="css/tokens.css?v=21">
+<link rel="stylesheet" href="css/style.css?v=21">
+<link rel="stylesheet" href="css/layout.css?v=21">
+<link rel="stylesheet" href="css/header.css?v=21">
+<link rel="stylesheet" href="css/components.css?v=21">
 
 <!-- ═══ Google Search Console: pega tu código de verificación (método "etiqueta HTML") ═══ -->
 <meta name="google-site-verification" content="PEGAR_CODIGO_DE_VERIFICACION">
@@ -119,72 +119,39 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
-     § ENCABEZADO DE PÁGINA
-     Sin hero de imagen → padding-top extra.
-     ESQUELETO (Fase 1). Copy real → FASE 7.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="proyectos" style="background:var(--void); padding-top:var(--space-6);">
+<section class="page-hero grid-texture" id="proyectos">
   <div class="container">
-    <div class="section-head reveal">
+    <div class="page-hero__inner reveal">
       <span class="readout">Proyectos</span>
       <h1>Nuestros proyectos</h1>
-      <p class="lede">Un vistazo a nuestra forma de trabajar. Iremos incorporando aquí casos reales a medida que avancen; por ahora, los ejemplos siguientes muestran el formato en que presentaremos cada proyecto.</p>
+      <p class="lede">Un vistazo a nuestra forma de trabajar. Iremos incorporando aquí casos reales a medida que avancen; por ahora, los ejemplos muestran el formato en que presentaremos cada proyecto.</p>
+      <div class="page-hero__rule"></div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     § GRILLA DE PROYECTOS
-     ─────────────────────────────────────────────────────
-     ESQUELETO (Fase 1). Contenido → FASE 7:
-       · Layout/grid para presentar proyectos (foto, descripción,
-         alcance de trabajos, tipo de cliente, resultados).
-       · 2-3 tarjetas de EJEMPLO marcadas explícitamente como
-         placeholder — NO inventar clientes ni cifras reales.
-     Se puede reutilizar el patrón .service-grid / .service-card
-     como base de las tarjetas.
-═══════════════════════════════════════════════ -->
-<section class="section grid-texture" id="grilla-proyectos" style="background:var(--void-soft);">
+<section class="section" id="grilla-proyectos" style="background:var(--void-soft);">
   <div class="container">
     <div class="section-head reveal">
       <span class="readout">Casos</span>
       <h2>Ejemplos de presentación</h2>
     </div>
-
     <div class="service-grid reveal-stagger">
-      <article class="service-card reveal reveal-left" style="--i:0;">
-        <span class="readout">Placeholder / 01</span>
-        <h3>Proyecto de ejemplo — reemplazar con caso real</h3>
-        <p><strong>Alcance:</strong> [descripción de los trabajos]<br>
-           <strong>Tipo de cliente:</strong> [público / privado / institucional]<br>
-           <strong>Resultados:</strong> [resultados obtenidos]</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:1;">
-        <span class="readout">Placeholder / 02</span>
-        <h3>Proyecto de ejemplo — reemplazar con caso real</h3>
-        <p><strong>Alcance:</strong> [descripción de los trabajos]<br>
-           <strong>Tipo de cliente:</strong> [público / privado / institucional]<br>
-           <strong>Resultados:</strong> [resultados obtenidos]</p>
-      </article>
-      <article class="service-card reveal reveal-left" style="--i:2;">
-        <span class="readout">Placeholder / 03</span>
-        <h3>Proyecto de ejemplo — reemplazar con caso real</h3>
-        <p><strong>Alcance:</strong> [descripción de los trabajos]<br>
-           <strong>Tipo de cliente:</strong> [público / privado / institucional]<br>
-           <strong>Resultados:</strong> [resultados obtenidos]</p>
-      </article>
-      <article class="service-card reveal reveal-right" style="--i:3;">
-        <span class="readout">Placeholder / 04</span>
-        <h3>Proyecto de ejemplo — reemplazar con caso real</h3>
-        <p><strong>Alcance:</strong> [descripción de los trabajos]<br>
-           <strong>Tipo de cliente:</strong> [público / privado / institucional]<br>
-           <strong>Resultados:</strong> [resultados obtenidos]</p>
-      </article>
+      <article class="service-card reveal reveal-left" style="--i:0;"><span class="readout">Placeholder / 01</span><h3>Proyecto de ejemplo — reemplazar con caso real</h3><p><strong>Alcance:</strong> [descripción de los trabajos]<br><strong>Tipo de cliente:</strong> [público / privado / institucional]<br><strong>Resultados:</strong> [resultados obtenidos]</p></article>
+      <article class="service-card reveal reveal-right" style="--i:1;"><span class="readout">Placeholder / 02</span><h3>Proyecto de ejemplo — reemplazar con caso real</h3><p><strong>Alcance:</strong> [descripción de los trabajos]<br><strong>Tipo de cliente:</strong> [público / privado / institucional]<br><strong>Resultados:</strong> [resultados obtenidos]</p></article>
+      <article class="service-card reveal reveal-left" style="--i:2;"><span class="readout">Placeholder / 03</span><h3>Proyecto de ejemplo — reemplazar con caso real</h3><p><strong>Alcance:</strong> [descripción de los trabajos]<br><strong>Tipo de cliente:</strong> [público / privado / institucional]<br><strong>Resultados:</strong> [resultados obtenidos]</p></article>
+      <article class="service-card reveal reveal-right" style="--i:3;"><span class="readout">Placeholder / 04</span><h3>Proyecto de ejemplo — reemplazar con caso real</h3><p><strong>Alcance:</strong> [descripción de los trabajos]<br><strong>Tipo de cliente:</strong> [público / privado / institucional]<br><strong>Resultados:</strong> [resultados obtenidos]</p></article>
     </div>
+  </div>
+</section>
 
-    <div class="reveal" style="text-align:center; margin-top:var(--space-4);">
-      <a href="contacto.html" class="btn btn--primary">¿Tiene un proyecto? Conversemos</a>
+<section class="section" style="background:var(--void);">
+  <div class="container">
+    <div class="cta-band reveal">
+      <span class="readout">Siguiente paso</span>
+      <h2>¿Tiene un proyecto? Conversemos</h2>
+      <p class="lede">Cuéntenos su alcance y le respondemos con los siguientes pasos.</p>
+      <div class="cta-band__actions"><a href="contacto.html" class="btn btn--primary">Contáctenos</a></div>
     </div>
   </div>
 </section>
@@ -250,7 +217,7 @@
   <a href="contacto.html" class="btn btn--primary btn--sm">Agendar consulta</a>
 </div>
 
-<script src="js/main.js?v=10"></script>
+<script src="js/main.js?v=11"></script>
 
 </body>
 </html>
