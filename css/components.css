@@ -408,15 +408,16 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 1.15rem;
   font-size: 0.88rem;
+  line-height: 1.5;
   color: var(--text-dim);
 }
 
 .site-footer__contact li {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.35rem;
 }
 
 .site-footer__contact .meta-label { font-size: 0.68rem; }

@@ -371,39 +371,23 @@ html[data-theme="light"] .banner__frame-img--light { opacity: 1; }
   max-width: 44rem;
 }
 
-.hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 1rem;
-}
-.hero__eyebrow::before {
-  content: '';
-  width: 26px;
-  height: 1px;
-  background: var(--cyan);
-  box-shadow: 0 0 8px 1px var(--cyan-glow);
-}
-
 .hero__title {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.9rem, 2.1vw + 1.1rem, 3.05rem);
-  line-height: 1.1;
+  line-height: 1.14;
   letter-spacing: -0.015em;
-  margin: 0 0 1.1rem;
+  margin: 0 0 1.15rem;
 }
 
-/* La segunda frase del titular es la promesa diferenciadora: se
-   destaca en dorado para que el ojo aterrice ahí. */
-.hero__title-accent {
+/* Las dos frases del titular van en la misma línea de color (blanco).
+   Antes la segunda iba en dorado, pero el dorado del TEMA CLARO es un
+   bronce oscuro (#856612) y el texto se apoya sobre un scrim OSCURO:
+   bronce sobre oscuro = ilegible y sucio. Un titular a dos colores
+   además abarata la composición. Blanco puro, y el dorado se reserva
+   para un único punto de acento: el botón. */
+.hero__title-line {
   display: block;
-  color: var(--cyan);
 }
 
 .hero__lede {
@@ -415,11 +399,19 @@ html[data-theme="light"] .banner__frame-img--light { opacity: 1; }
 
 /* En ESCRITORIO el texto va sobre la foto → blanco fijo (el scrim
    oscuro lo sostiene en ambos temas). En MÓVIL el texto cae debajo
-   de la imagen, sobre el fondo de la página → hereda los colores del
-   tema. Por eso el blanco se declara solo dentro del media query. */
+   de la imagen, sobre el fondo de la página → hereda los del tema. */
 @media (min-width: 860px) {
+  /* El hero es SIEMPRE oscuro (por el scrim), así que aquí se fuerza
+     la versión clara del dorado — la del tema oscuro — sin importar
+     qué tema tenga la página. Así el botón brilla en vez de embarrarse. */
+  .hero__content {
+    --cyan:         #D9B863;
+    --cyan-dim:     rgba(217, 184, 99, 0.5);
+    --cyan-glow:    rgba(217, 184, 99, 0.22);
+    --text-on-cyan: #0A1224;
+  }
   .hero__title { color: #FFFFFF; }
-  .hero__lede  { color: rgba(255, 255, 255, 0.78); }
+  .hero__lede  { color: rgba(255, 255, 255, 0.82); }
   .hero__content .btn--ghost {
     color: #FFFFFF;
     border-color: rgba(255, 255, 255, 0.34);
@@ -427,7 +419,7 @@ html[data-theme="light"] .banner__frame-img--light { opacity: 1; }
     backdrop-filter: blur(var(--glass-blur-sm));
   }
   .hero__content .btn--ghost:hover {
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.62);
     background: rgba(255, 255, 255, 0.14);
   }
 }
@@ -435,7 +427,7 @@ html[data-theme="light"] .banner__frame-img--light { opacity: 1; }
 @media (max-width: 859px) {
   .hero__title { color: var(--text-primary); }
   .hero__lede  { color: var(--text-dim); }
-  .hero__eyebrow { margin-top: var(--space-2); }
+  .hero__content { padding-top: var(--space-2); }
 }
 
 /* ═══════════════════════════════════════════════════════════
