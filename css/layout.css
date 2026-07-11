@@ -175,7 +175,7 @@ html[data-theme="light"] .hero__frame-img--light { opacity: 1; }
    por defecto es la marina, y la excepción es [data-theme="dark"]. */
 .hero__logo {
   position: relative;
-  width: min(500px, 76%);
+  width: min(440px, 68%);
   aspect-ratio: 1166 / 777;
   margin: 0 auto;
 }
@@ -194,7 +194,7 @@ html[data-theme="dark"] .hero__logo-img--dark { opacity: 0; }
 html[data-theme="dark"] .hero__logo-img--light { opacity: 1; }
 
 @media (max-width: 640px) {
-  .hero__logo { width: min(320px, 84%); }
+  .hero__logo { width: min(280px, 78%); }
 }
 
 .hero__brand {
