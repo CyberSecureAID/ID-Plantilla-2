@@ -316,3 +316,25 @@ html[data-theme="light"] .theme-toggle__icon--sun { opacity: 1; transform: rotat
   .site-nav .site-nav__cta::before { content: none; }
   .site-header__toggle { display: flex; }
 }
+
+/* ═══════════════════════════════════════════════
+   LOGOTIPO REAL — reemplaza el monograma "NP" + wordmark de texto.
+   El SVG es vectorial: se escala por altura y queda nítido siempre.
+   En modo oscuro el logo (azules marinos) se aclara con un filtro
+   para no perderse contra el fondo, misma lógica que el favicon.
+═══════════════════════════════════════════════ */
+.site-header__logo {
+  height: 34px;
+  width: auto;
+  display: block;
+  transition: filter var(--dur-base) ease;
+}
+
+html[data-theme="dark"] .site-header__logo,
+html[data-theme="dark"] .site-footer__logo {
+  filter: brightness(0) invert(1) opacity(0.92);
+}
+
+@media (max-width: 480px) {
+  .site-header__logo { height: 28px; }
+}
