@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#05070D"/>
-  <path d="M4 9 V4 H9" stroke="#4FD8FF" stroke-width="1.6" fill="none"/>
-  <path d="M28 23 V28 H23" stroke="#4FD8FF" stroke-width="1.6" fill="none"/>
-  <text x="16" y="21.5" font-family="'Space Grotesk', Helvetica, sans-serif" font-size="15" font-weight="600" fill="#EAF1FF" text-anchor="middle">E</text>
-</svg>
