@@ -42,11 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css?v=31">
-<link rel="stylesheet" href="css/style.css?v=31">
-<link rel="stylesheet" href="css/layout.css?v=31">
-<link rel="stylesheet" href="css/header.css?v=31">
-<link rel="stylesheet" href="css/components.css?v=31">
+<link rel="stylesheet" href="css/tokens.css?v=32">
+<link rel="stylesheet" href="css/style.css?v=32">
+<link rel="stylesheet" href="css/layout.css?v=32">
+<link rel="stylesheet" href="css/header.css?v=32">
+<link rel="stylesheet" href="css/components.css?v=32">
 
 <!-- ═══ Google Search Console: pega tu código de verificación (método "etiqueta HTML") ═══ -->
 <meta name="google-site-verification" content="PEGAR_CODIGO_DE_VERIFICACION">
@@ -129,43 +129,78 @@
      NOTA: imágenes del hero SIN TOCAR (pendiente confirmar con el
      cliente si son definitivas o placeholder).
 ═══════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     § HERO — el mensaje, no el logotipo.
+     El logo vive en el header. Aquí va lo único que convierte a un
+     visitante en cliente: qué hacemos, para quién, y qué hacer ahora.
+     El texto se apoya sobre un scrim inferior (ver layout.css) que
+     deja intactos el cielo, la Torre CN, la bandera y las grúas.
+═══════════════════════════════════════════════ -->
 <section class="hero" id="top">
   <div class="hero__frame">
-    <img class="hero__frame-img hero__frame-img--dark" src="images/hero-bg.webp" alt="Global project network with Canada highlighted and tower cranes over a digital building model" loading="eager">
+    <img class="hero__frame-img hero__frame-img--dark" src="images/hero-bg.webp" alt="Tower cranes and a building under construction over the Toronto skyline" loading="eager">
     <img class="hero__frame-img hero__frame-img--light" src="images/hero-bg-light.webp" alt="" aria-hidden="true" loading="eager">
     <div class="hero__frame-overlay"></div>
   </div>
 
   <div class="hero__panel-wrap">
     <div class="container">
-      <!-- Logo suspendido, centrado. Dos versiones (marina / plateada)
-           superpuestas en la misma caja; cuál se ve depende solo de
-           data-theme en <html> — crossfade puro en CSS. La sombra suave
-           del PNG original se conserva (canal alfa con degradado). -->
-      <div class="hero__logo reveal">
-        <img class="hero__logo-img hero__logo-img--dark" src="images/hero-logo.webp" alt="North Peak Construction Alliance Inc." loading="eager">
-        <img class="hero__logo-img hero__logo-img--light" src="images/hero-logo-light.webp" alt="" aria-hidden="true" loading="eager">
+      <div class="hero__content reveal reveal-left">
+        <span class="hero__eyebrow">Indigenous-Owned &middot; Toronto, Ontario &middot; Canada-Wide</span>
+        <h1 class="hero__title">
+          Real construction capability.
+          <span class="hero__title-accent">Authentic Indigenous partnership.</span>
+        </h1>
+        <p class="hero__lede">We deliver projects across Ontario and Canada — helping general contractors, public bodies and private clients meet their Indigenous procurement goals without compromising on safety, quality or schedule.</p>
+        <div class="hero__actions">
+          <a href="contacto.html" class="btn btn--primary">Request a consultation</a>
+          <a href="servicios.html" class="btn btn--ghost">Explore our services</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════
-     § PRESENTACIÓN / PROPUESTA DE VALOR
-     ─────────────────────────────────────────────────────
-     ESQUELETO (Fase 1). El contenido real entra en la FASE 3:
-       · Presentación de la empresa (North Peak Construction
-         Alliance Inc.)
-       · Propuesta de valor
-       · Ventajas competitivas
-     No se inventa copy aquí — solo el andamiaje de la sección.
+     § BARRA DE CREDENCIALES
+     Los cuatro datos que un oficial de compras públicas busca en los
+     primeros diez segundos. Todos verificables — nada inventado.
+     Además, absorbe la transición entre la foto y la página.
+═══════════════════════════════════════════════ -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-bar__grid">
+      <div class="trust-bar__item">
+        <span class="trust-bar__label">Ownership</span>
+        <span class="trust-bar__value"><em>Indigenous-owned</em></span>
+      </div>
+      <div class="trust-bar__item">
+        <span class="trust-bar__label">Service areas</span>
+        <span class="trust-bar__value">10 disciplines</span>
+      </div>
+      <div class="trust-bar__item">
+        <span class="trust-bar__label">Coverage</span>
+        <span class="trust-bar__value">Ontario &amp; Canada-wide</span>
+      </div>
+      <div class="trust-bar__item">
+        <span class="trust-bar__label">Incorporation</span>
+        <span class="trust-bar__value">Federal &middot; No.&nbsp;1521162-0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     § POR QUÉ NORTH PEAK — ventajas competitivas.
+     El h1 y la presentación se movieron al hero, que es su sitio.
+     Esta sección ahora abre con h2 y va directo al valor.
 ═══════════════════════════════════════════════ -->
 <section class="section grid-texture" id="presentacion" style="background:var(--void);">
   <div class="container">
     <div class="section-head reveal">
-      <span class="readout">North Peak Construction Alliance</span>
-      <h1>A strategic construction partner with Indigenous participation</h1>
-      <p class="lede">North Peak Construction Alliance Inc. is an Indigenous-owned construction company committed to excellence, safety, and delivering construction solutions across Ontario and all of Canada.</p>
+      <span class="readout">Why North Peak</span>
+      <h2>A partner that delivers on both fronts</h2>
+      <p class="lede">Indigenous participation is not a box we tick — it is who we are. And it comes with the technical capability to build.</p>
     </div>
 
     <div class="service-grid reveal-stagger" style="margin-top:var(--space-3);">
