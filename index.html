@@ -42,11 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/tokens.css?v=26">
-<link rel="stylesheet" href="css/style.css?v=26">
-<link rel="stylesheet" href="css/layout.css?v=26">
-<link rel="stylesheet" href="css/header.css?v=26">
-<link rel="stylesheet" href="css/components.css?v=26">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/style.css?v=27">
+<link rel="stylesheet" href="css/layout.css?v=27">
+<link rel="stylesheet" href="css/header.css?v=27">
+<link rel="stylesheet" href="css/components.css?v=27">
 
 <!-- ═══ Google Search Console: pega tu código de verificación (método "etiqueta HTML") ═══ -->
 <meta name="google-site-verification" content="PEGAR_CODIGO_DE_VERIFICACION">
@@ -138,9 +138,13 @@
 
   <div class="hero__panel-wrap">
     <div class="container">
-      <div class="hero__id-card reveal reveal-left">
-        <img class="hero__id-card-img hero__id-card-img--dark" src="images/hero-id-card-dark.webp" alt="North Peak Construction Alliance — Engineering &amp; Construction" loading="eager">
-        <img class="hero__id-card-img hero__id-card-img--light" src="images/hero-id-card-light.webp" alt="" aria-hidden="true" loading="eager">
+      <!-- Logo suspendido, centrado. Dos versiones (marina / plateada)
+           superpuestas en la misma caja; cuál se ve depende solo de
+           data-theme en <html> — crossfade puro en CSS. La sombra suave
+           del PNG original se conserva (canal alfa con degradado). -->
+      <div class="hero__logo reveal">
+        <img class="hero__logo-img hero__logo-img--dark" src="images/hero-logo.webp" alt="North Peak Construction Alliance Inc." loading="eager">
+        <img class="hero__logo-img hero__logo-img--light" src="images/hero-logo-light.webp" alt="" aria-hidden="true" loading="eager">
       </div>
     </div>
   </div>
