@@ -150,14 +150,23 @@ html[data-theme="light"] .hero__frame-img--light { opacity: 1; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  /* Antes había un segundo degradado horizontal (90deg) que oscurecía
-     el lado izquierdo: existía para que se leyera el texto de la antigua
-     tarjeta, que vivía ahí. Con el logo ya centrado, ese velo no cumple
-     ninguna función y en modo claro se veía como una "niebla" blanca que
-     tapaba la bandera de Canadá. Eliminado.
-     Se conserva SOLO el fundido inferior, que es el que hace que la
-     imagen se funda con el fondo de la página sin corte visible. */
-  background: linear-gradient(180deg, transparent 72%, var(--void) 100%);
+  /* SCRIM CINEMATOGRÁFICO.
+     El texto del hero es BLANCO en los dos temas: es la única forma
+     de garantizar legibilidad sobre una foto (en claro, el cielo es
+     brillante; en oscuro, la noche). Para sostener ese blanco hace
+     falta una base oscura — por eso el degradado usa un azul profundo
+     FIJO y no var(--void): si usara la variable, en tema claro la base
+     sería blanca y el texto desaparecería.
+     El degradado sube desde abajo, así deja intactos el cielo, la
+     Torre CN, la bandera y las grúas (que viven en los dos tercios
+     superiores) y solo oscurece la franja donde se apoya el texto. */
+  background: linear-gradient(
+    180deg,
+    transparent 22%,
+    rgba(7, 12, 22, 0.38) 48%,
+    rgba(7, 12, 22, 0.78) 74%,
+    #070C16 100%
+  );
 }
 
 .hero__panel-wrap {
@@ -233,7 +242,7 @@ html[data-theme="dark"] .hero__logo-img--light { opacity: 1; }
     padding-bottom: 0;
     pointer-events: none;
   }
-  .hero__panel-wrap { justify-content: center; }
+  .hero__panel-wrap { align-items: flex-end; padding-bottom: var(--space-5); }
   .hero__panel-wrap .container { pointer-events: auto; width: 100%; }
 }
 
@@ -344,4 +353,147 @@ html[data-theme="light"] .banner__frame-img--light { opacity: 1; }
 ═══════════════════════════════════════════════ */
 .viewport {
   position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO CINEMATOGRÁFICO — el mensaje, no el logotipo.
+   ───────────────────────────────────────────────────────────
+   El logo salió del hero (vive en el header, que es su lugar). Un
+   logotipo gigante flotando sobre una foto realista se lee como una
+   calcomanía: no comparte la fuente de luz de la imagen y el ojo lo
+   detecta. Además, un hero debe VENDER — foto + promesa + acción —,
+   no darte la bienvenida con una tarjeta de presentación.
+   El texto va en BLANCO sobre el scrim, abajo a la izquierda: la
+   lectura natural en occidente y la composición que usan las grandes
+   constructoras. En móvil el texto cae debajo de la imagen, en flujo.
+═══════════════════════════════════════════════════════════ */
+.hero__content {
+  max-width: 44rem;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+.hero__eyebrow::before {
+  content: '';
+  width: 26px;
+  height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 8px 1px var(--cyan-glow);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 2.1vw + 1.1rem, 3.05rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.1rem;
+}
+
+/* La segunda frase del titular es la promesa diferenciadora: se
+   destaca en dorado para que el ojo aterrice ahí. */
+.hero__title-accent {
+  display: block;
+  color: var(--cyan);
+}
+
+.hero__lede {
+  font-size: clamp(0.98rem, 0.3vw + 0.9rem, 1.1rem);
+  line-height: 1.62;
+  max-width: 40rem;
+  margin: 0 0 var(--space-3);
+}
+
+/* En ESCRITORIO el texto va sobre la foto → blanco fijo (el scrim
+   oscuro lo sostiene en ambos temas). En MÓVIL el texto cae debajo
+   de la imagen, sobre el fondo de la página → hereda los colores del
+   tema. Por eso el blanco se declara solo dentro del media query. */
+@media (min-width: 860px) {
+  .hero__title { color: #FFFFFF; }
+  .hero__lede  { color: rgba(255, 255, 255, 0.78); }
+  .hero__content .btn--ghost {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.34);
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(var(--glass-blur-sm));
+  }
+  .hero__content .btn--ghost:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
+
+@media (max-width: 859px) {
+  .hero__title { color: var(--text-primary); }
+  .hero__lede  { color: var(--text-dim); }
+  .hero__eyebrow { margin-top: var(--space-2); }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BARRA DE CREDENCIALES — franja oscura bajo el hero.
+   ───────────────────────────────────────────────────────────
+   Cumple DOS funciones a la vez:
+   1. Diseño: absorbe la transición entre la foto (que termina en
+      azul profundo) y la página (blanco perla en tema claro). En vez
+      de un corte visible, hay una banda intencionada. En tema oscuro
+      simplemente continúa la oscuridad.
+   2. Negocio: son los cuatro datos que un oficial de compras públicas
+      busca en los primeros diez segundos. TODOS son verificables:
+      propiedad indígena, 10 áreas de servicio, cobertura, y el número
+      de corporación federal real. Nada inventado.
+═══════════════════════════════════════════════════════════ */
+.trust-bar {
+  background: #070C16;
+  border-top: 1px solid rgba(150, 180, 235, 0.10);
+  border-bottom: 1px solid rgba(150, 180, 235, 0.10);
+}
+
+.trust-bar__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(150, 180, 235, 0.10);
+}
+
+.trust-bar__item {
+  background: #070C16;
+  padding: 1.6rem var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.trust-bar__label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(232, 238, 249, 0.45);
+}
+
+.trust-bar__value {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #FFFFFF;
+}
+
+.trust-bar__value em {
+  font-style: normal;
+  color: var(--cyan);
+}
+
+@media (max-width: 860px) {
+  .trust-bar__grid { grid-template-columns: repeat(2, 1fr); }
+  .trust-bar__item { padding: 1.2rem var(--space-2); }
 }
