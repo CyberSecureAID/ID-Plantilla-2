@@ -1,46 +1,57 @@
 /* ═══════════════════════════════════════════════════════════
-   TOKENS.CSS — Sistema de diseño — paleta "Opción C": Negro / Dorado / Blanco
+   TOKENS.CSS — Sistema de diseño — "Navy & Gold"
    ───────────────────────────────────────────────────────────
-   Glassmorphism técnico. El acento primario es dorado; el
-   secundario, un dorado más profundo (bronce) que acompaña sin
-   competir. Se conservan los NOMBRES de variables del sistema
-   anterior (incluido --cyan) para no tocar el resto del CSS: solo
-   cambian los valores de color.
+   DIRECCIÓN DE COLOR (importante para entender el resto):
+
+   El logotipo aprobado por el cliente es azul marino + gris acero
+   + blanco (es, literalmente, la Opción A del brief). El sitio
+   estaba construido sobre la Opción C (negro / dorado / blanco),
+   con TODOS los neutros en tono cálido (crema, marrón-negro). Un
+   logo frío rodeado de neutros cálidos se lee como un objeto
+   pegado encima — ese era el choque visual.
+
+   Solución: se casan ambas paletas. El AZUL MARINO pasa a ser el
+   color ESTRUCTURAL (fondos, texto, bordes, cristal) y el DORADO
+   queda como ACENTO real (botones, readouts, líneas, glows). Es la
+   combinación clásica de autoridad institucional — la adecuada para
+   una constructora que va a licitaciones públicas.
+
+   NOTA: la variable de acento se sigue llamando --cyan por
+   compatibilidad con el resto del CSS. Su VALOR es dorado. No
+   renombrar: está referenciada en todos los archivos.
 ═══════════════════════════════════════════════════════════ */
 
 :root {
 
-  /* ─── Superficie base (negro neutro) ─── */
-  --void:            #05070D;
-  --void-soft:       #0A0F1C;
-  --void-elevated:   #101830;
+  /* ─── Superficie base (negro azulado — familia del logo) ─── */
+  --void:            #070C16;
+  --void-soft:       #0D1524;
+  --void-elevated:   #16203A;
 
-  /* ─── Cristal (tinte azul frío — tema nocturno original) ─── */
-  --glass-fill:       rgba(154, 184, 255, 0.06);
-  --glass-fill-hover: rgba(154, 184, 255, 0.11);
-  --glass-border:     rgba(154, 184, 255, 0.16);
-  --glass-border-strong: rgba(154, 184, 255, 0.30);
+  /* ─── Cristal (tinte azul frío) ─── */
+  --glass-fill:       rgba(150, 180, 235, 0.06);
+  --glass-fill-hover: rgba(150, 180, 235, 0.11);
+  --glass-border:     rgba(150, 180, 235, 0.17);
+  --glass-border-strong: rgba(150, 180, 235, 0.32);
   --glass-blur:       18px;
   --glass-blur-sm:    10px;
 
-  /* ─── Acentos ───
-     --cyan conserva el nombre por compatibilidad, pero ahora es
-     DORADO (acento primario). --amber es un dorado más profundo. */
-  --cyan:             #E4C567;
-  --cyan-dim:         rgba(228, 197, 103, 0.5);
-  --cyan-glow:        rgba(228, 197, 103, 0.22);
-  --amber:            #C9A227;
-  --amber-dim:        rgba(201, 162, 39, 0.55);
+  /* ─── Acento dorado (--cyan por compatibilidad) ─── */
+  --cyan:             #D9B863;
+  --cyan-dim:         rgba(217, 184, 99, 0.5);
+  --cyan-glow:        rgba(217, 184, 99, 0.22);
+  --amber:            #C09A3E;
+  --amber-dim:        rgba(192, 154, 62, 0.55);
 
-  /* ─── Texto (blanco frío — tema nocturno original) ─── */
-  --text-primary:     #EAF1FF;
-  --text-dim:         rgba(234, 241, 255, 0.64);
-  --text-faint:       rgba(234, 241, 255, 0.38);
-  --text-on-cyan:     #04121A;   /* texto oscuro sobre botón dorado */
+  /* ─── Texto (blanco frío) ─── */
+  --text-primary:     #E8EEF9;
+  --text-dim:         rgba(232, 238, 249, 0.66);
+  --text-faint:       rgba(232, 238, 249, 0.40);
+  --text-on-cyan:     #0A1224;
 
   /* ─── Líneas ─── */
-  --rule:             rgba(154, 184, 255, 0.14);
-  --rule-strong:      rgba(154, 184, 255, 0.26);
+  --rule:             rgba(150, 180, 235, 0.15);
+  --rule-strong:      rgba(150, 180, 235, 0.27);
 
   /* ─── Tipografía ─── */
   --font-display: 'Space Grotesk', 'Helvetica Neue', sans-serif;
@@ -85,10 +96,10 @@
   --dur-slow:  600ms;
 
   /* ─── Superficies traslúcidas (rgba(var(--x-rgb), alpha)) ─── */
-  --surface-rgb:   10, 15, 28;   /* header, nav móvil, CTA flotante */
-  --overlay-rgb:    5,  7, 13;   /* difusores de imagen (hero/banner) */
-  --radial-accent: rgba(228, 197, 103, 0.10); /* resplandor menú móvil */
-  --grid-line:     rgba(154, 184, 255, 0.07);  /* retícula plano técnico */
+  --surface-rgb:   13, 21, 36;
+  --overlay-rgb:    7, 12, 22;
+  --radial-accent: rgba(217, 184, 99, 0.10);
+  --grid-line:     rgba(150, 180, 235, 0.07);
 
   /* ─── Capas ─── */
   --z-header:      100;
@@ -98,35 +109,45 @@
 
 /* ═══════════════════════════════════════════════════════════
    MODO CLARO — [data-theme="light"] en <html>.
-   Dorado oscurecido (bronce) para conservar contraste AA como
-   texto/acento sobre fondo claro.
+   ───────────────────────────────────────────────────────────
+   Neutros FRÍOS (blanco perla / gris azulado), no crema cálida:
+   así el azul marino del logo se asienta de forma natural en vez
+   de leerse como un cuerpo extraño. El texto principal ES azul
+   marino — el mismo tono del logo — lo que convierte al logotipo
+   en el ancla cromática de la página, no en la excepción.
+   El dorado se oscurece a bronce para conservar contraste AA
+   sobre fondo claro, y se usa con moderación: es acento, no relleno.
 ═══════════════════════════════════════════════════════════ */
 html[data-theme="light"] {
-  --void:            #ECE8DE;
-  --void-soft:       #F6F3EC;
-  --void-elevated:   #E1DBCC;
+  --void:            #EDF1F7;
+  --void-soft:       #F8FAFC;
+  --void-elevated:   #DFE6F0;
 
-  --glass-fill:       rgba(30, 24, 10, 0.05);
-  --glass-fill-hover: rgba(30, 24, 10, 0.10);
-  --glass-border:     rgba(30, 24, 10, 0.16);
-  --glass-border-strong: rgba(30, 24, 10, 0.30);
+  /* Cristal con tinte AZUL (antes marrón): unifica con el logo */
+  --glass-fill:       rgba(15, 32, 62, 0.045);
+  --glass-fill-hover: rgba(15, 32, 62, 0.09);
+  --glass-border:     rgba(15, 32, 62, 0.15);
+  --glass-border-strong: rgba(15, 32, 62, 0.28);
 
-  --cyan:             #9A7817;
-  --cyan-dim:         rgba(154, 120, 23, 0.55);
-  --cyan-glow:        rgba(154, 120, 23, 0.16);
-  --amber:            #7E5E12;
-  --amber-dim:        rgba(126, 94, 18, 0.5);
+  /* Dorado → bronce profundo: mantiene el carácter de la Opción C
+     con el contraste que exige un fondo claro. */
+  --cyan:             #856612;
+  --cyan-dim:         rgba(138, 106, 20, 0.55);
+  --cyan-glow:        rgba(138, 106, 20, 0.15);
+  --amber:            #705411;
+  --amber-dim:        rgba(112, 84, 17, 0.5);
 
-  --text-primary:     #1A1712;
-  --text-dim:         rgba(26, 23, 18, 0.64);
-  --text-faint:       rgba(26, 23, 18, 0.40);
+  /* Texto en AZUL MARINO — el mismo del logotipo */
+  --text-primary:     #0F1E38;
+  --text-dim:         rgba(15, 30, 56, 0.66);
+  --text-faint:       rgba(15, 30, 56, 0.42);
   --text-on-cyan:     #FFFFFF;
 
-  --rule:             rgba(30, 24, 10, 0.15);
-  --rule-strong:      rgba(30, 24, 10, 0.26);
+  --rule:             rgba(15, 32, 62, 0.14);
+  --rule-strong:      rgba(15, 32, 62, 0.26);
 
-  --surface-rgb:      246, 243, 236;
-  --overlay-rgb:      236, 232, 222;
-  --radial-accent:    rgba(154, 120, 23, 0.08);
-  --grid-line:        rgba(30, 24, 10, 0.12);
+  --surface-rgb:      248, 250, 252;
+  --overlay-rgb:      237, 241, 247;
+  --radial-accent:    rgba(138, 106, 20, 0.08);
+  --grid-line:        rgba(15, 32, 62, 0.11);
 }
