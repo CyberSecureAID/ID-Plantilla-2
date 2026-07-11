@@ -139,8 +139,8 @@ function initThemeToggle() {
   const root = document.documentElement;
   const order = ['light', 'dark'];
   const labels = {
-    light: 'Cambiar a modo oscuro',
-    dark:  'Cambiar a modo claro'
+    light: 'Switch to dark mode',
+    dark:  'Switch to light mode'
   };
 
   const current = () => {
