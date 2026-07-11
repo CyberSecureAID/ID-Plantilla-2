@@ -150,9 +150,14 @@ html[data-theme="light"] .hero__frame-img--light { opacity: 1; }
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    linear-gradient(180deg, transparent 80%, var(--void) 100%),
-    linear-gradient(90deg, rgba(var(--overlay-rgb),0.8) 0%, rgba(var(--overlay-rgb),0.42) 40%, transparent 66%);
+  /* Antes había un segundo degradado horizontal (90deg) que oscurecía
+     el lado izquierdo: existía para que se leyera el texto de la antigua
+     tarjeta, que vivía ahí. Con el logo ya centrado, ese velo no cumple
+     ninguna función y en modo claro se veía como una "niebla" blanca que
+     tapaba la bandera de Canadá. Eliminado.
+     Se conserva SOLO el fundido inferior, que es el que hace que la
+     imagen se funda con el fondo de la página sin corte visible. */
+  background: linear-gradient(180deg, transparent 72%, var(--void) 100%);
 }
 
 .hero__panel-wrap {
